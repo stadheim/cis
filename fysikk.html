@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Silje Stadheim">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <title>Fysikk</title>
+  <script>
+    window.onload = main;
+
+    //=[Prøve 1, Prøve 2, Prøve 3, sum, prover];
+    var arr = [0,0,0,0,0];
+    //=[Karakter, prosent, hva man må ha på eksamen]
+    var kar = [];
+    kar[0] = [90, "A"];
+    kar[1] = [80, "B"];
+    kar[2] = [60, "C"];
+    kar[3] = [50, "D"];
+    kar[4] = [40, "E"];
+
+
+    var sum = arr[3];
+    var prover = arr[4];
+
+    function main() {
+      d("btnReg").onclick = beregn;
+    }
+
+    function beregn() {
+      //hente registreringer
+      for(var i=0; i<3; i++){
+          var navn = "nbrProve" + (i+1);
+          arr[i] = parseFloat(d(navn).value);
+
+          //omgjor til prosent om desimaltall
+          if(arr[i] < 1) {
+            arr[i] = arr[i] * 100;
+          }
+
+          //skriver ut feilmelding om noe er feil
+
+          sum = sum + arr[i];
+        }
+        //regner ut og legger resultatet på slutten av kar
+        prover = sum/3*0.4;
+        for(var i=0; i<kar.length; i++) {
+          eksamen = (kar[i][0]-prover)/0.6;
+          kar[i].push = parseFloat(eksamen.toFixed(2));
+        }
+        tabell();
+      }
+
+    function tabell() {
+      var tabell = document.createElement("table");
+      tabell.style.margin = "0 auto";
+      for(var i=0; i<kar.length; i++) {
+          var rad = document.createElement("tr");
+          for(var j=1; j<=2; j++) {
+              var celle = document.createElement("td");
+              celle.innerHTML = kar[i][j];
+              if(j===1) {
+                  celle.style.fontWeight = "bolder";
+              }
+              rad.appendChild(celle);
+          }
+          tabell.appendChild(rad);
+      }
+      d("txtUtskrift").appendChild(tabell);
+
+      d("btnReg").onclick = restart;
+    }
+
+    function restart() {
+      //sletter tabeller i arrayene
+
+      //sletter innhold i txtUtskrift
+    }
+
+    //setter inn document.getElementById så jeg slipper å skrive de inn
+    function d(elm) { //elm for element
+        return document.getElementById(elm);
+    }
+
+  </script>
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-image: url(fysikk.jpg);
+      background-size: auto;
+    }
+    .innpakning {
+      margin: auto;;
+      padding: 10px;
+      text-align: center;
+      width: 50%;
+      padding-bottom: 2s0%;
+      background-color: white;
+    }
+    #overskrift {
+      font-size: 100px;
+      font-family: 'Open Sans', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="innpakning">
+
+  <div id="overskrift">Fysikk</div>
+
+      <h3>Registrer resultatet av dine 3 beste fysikkprøver </h3>
+
+      <div class="inputs">
+        Prøve 1:<br/><input type="number" id="nbrProve1"><br/>
+        Prøve 2:<br/><input type="number" id="nbrProve2"><br/>
+        Prøve 3:<br/><input type="number" id="nbrProve3"><br/>
+      </div>
+
+      </br>
+          <button type="button" id="btnReg">Angi</button>
+
+      <p id="txtUtskrift"></p>
+  </div>
+
+
+</body>
+</html>
