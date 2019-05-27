@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Silje Stadheim">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <title>CIS</title>
+  <script>
+    window.onload = main;
+
+    var arr = [];
+    //= [Navn på faget,id, studiepoeng, bokstav*studiepoeng, ]
+    arr[0] = ["CyPro","cypro", 7.5];
+    arr[1] = ["MM1","mm1", 15];
+    arr[2] = ["Prog og DigTek","progogdigtek", 7.5];
+    arr[3] = ["Kjemi","kjemi", 5];
+
+
+    var antFag = arr.length;
+    var antStudiepoeng = 0;
+    var error = false;
+
+    function main() {
+      for(var i=0; i<arr.length; i++){
+        //telle antall studiepoeng sålangt
+        antStudiepoeng = antStudiepoeng + arr[i][2];
+        //felt for bokstavkarakterene
+        d("inputs").innerHTML += "" + arr[i][0] + ":</br><input type='input' id=txt" + arr[i][1] + "><br/>";
+      }
+      vent();
+    }
+
+    function vent() {
+      d("btnReg").onclick = hent;
+    }
+
+    function hent() {
+      //hente registreringer
+      for(var i=0; i<antFag; i++){
+        var navn = "txt" + arr[i][1];
+        var bokstav = d(navn).value;
+      //gjør om verdier til tall i enden av array
+        tilTall(bokstav, i);
+      }
+
+      //beregn snitt hvis ingenting er feil
+      if(error === false) {
+        beregn();
+      }
+      else {
+        slutt();
+      }
+    }
+
+    function tilTall(bokstav, arrNum) {
+      //bokstaver over til tall
+      if(bokstav === "a" || bokstav == "A") {
+        fag = 6;
+      }
+      else if(bokstav === "b" || bokstav == "B") {
+        fag = 5;
+      }
+      else if(bokstav === "c" || bokstav == "C") {
+        fag = 4;
+      }
+      else if(bokstav === "d" || bokstav == "D") {
+        fag = 3;
+      }
+      else if(bokstav === "e" || bokstav == "E") {
+        fag = 2;
+      }
+      else if(bokstav === "f" || bokstav == "F") {
+        fag = 1;
+      }
+      else {
+        d("txtUtskrift").innerHTML = "404 ERROR</br>Noe gikk galt!</br>Har du skrevet inn gyldige karakterer fra A til F?</br>";
+        error = true;
+      }
+
+      //legger kun inn i array om ingenting er feil
+      if(error === false) {
+        //tall ganget med studiepoeng
+        fag = fag * arr[arrNum][2];
+        //leger resultat inn i array på plass arr[i][3]
+        arr[arrNum].push(fag);
+      }
+    }
+
+    function beregn() {
+      var karakter = 0;
+      for(var i=0; i<antFag; i++){
+        karakter = karakter + arr[i][3];
+      }
+      karakter = karakter/antStudiepoeng;
+      //karakter i tall skal nå beregnes til bokstavkarakteren
+      tilBokstav(karakter);
+    }
+
+    function tilBokstav(resTall) {
+      var resBok;
+      if(resTall <= 1) {
+        resBok = "F";
+      }
+      else if(resTall <= 2) {
+        resBok = "E";
+      }
+      else if(resTall <= 3) {
+        resBok = "D";
+      }
+      else if(resTall <= 4) {
+        resBok = "C";
+      }
+      else if(resTall <= 5) {
+        resBok = "B";
+      }
+      else if(resTall <= 6) {
+        resBok = "A";
+      }
+      else {
+        d("txtUtskrift").innerHTML = "404 ERROR</br>Noe gikk galt med omgjøring fra snitt til bokstavkarakter.</br>Har du skrevet inn gyldige karakterer fra A til F?</br>";
+      }
+
+      utskrift(resTall, resBok);
+    }
+
+    function utskrift(tall,bok) {
+      d("txtUtskrift").innerHTML = "";
+
+      var utskrift = document.createElement("div");
+      utskrift.innerHTML = "Snittet ditt er " + tall.toFixed(1) + "</br>Det tilsvarer et snitt på <b>" + bok + "</b>";
+      d("txtUtskrift").appendChild(utskrift);
+
+      slutt();
+    }
+
+    function slutt() {
+      //fjerner nye tabeller fra arrayet
+      for(var i=0; i<antFag; i++) {
+        if(arr[i].length > 3) {
+          arr[i].splice(3, 1);
+        }
+      }
+
+      //lager knapp
+      var knapp = document.createElement("button");
+      knapp.innerHTML = "Start på nytt";
+      d("txtUtskrift").appendChild(knapp);
+      knapp.onclick = restart;
+
+      //hvis man endrer og trykker "angi" direkte
+      d("btnReg").onclick = hent;
+    }
+
+    function restart() {
+      error = false;
+
+      //nullstiller txtUtskrift
+      while(d("txtUtskrift").firstChild) {
+          d("txtUtskrift").removeChild(d("txtUtskrift").firstChild);
+      }
+      //nullstille felter
+      for(var i=0; i<antFag; i++){
+        var navn = "txt" + arr[i][1];
+        d(navn).value = "";
+      }
+
+      vent();
+    }
+
+    //setter inn document.getElementById så jeg slipper å skrive det inn
+    function d(elm) { //elm for element
+        return document.getElementById(elm);
+    }
+
+  </script>
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #5d1869;
+    }
+    .innpakning {
+      margin: auto;;
+      padding: 10px;
+      text-align: center;
+    }
+    #overskrift {
+      font-size: 100px;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="innpakning">
+
+  <div id="overskrift">C I S</div>
+
+      <h3>Registrer bokstavkarakteren fra hvert fag for å få bokstavsnittet ditt</h3>
+
+      <div id="inputs">
+      </div>
+
+      </br>
+          <button type="button" id="btnReg">Angi</button>
+
+      <p id="txtUtskrift"></p>
+  </div>
+
+</body>
+</html>
