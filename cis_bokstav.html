@@ -100,19 +100,19 @@
 
     function tilBokstav(resTall) {
       var resBok;
-      if(resTall <= 1) {
+      if(resTall <= 1.5) {
         resBok = "F";
       }
-      else if(resTall <= 2) {
+      else if(resTall <= 2.5) {
         resBok = "E";
       }
-      else if(resTall <= 3) {
+      else if(resTall <= 3.5) {
         resBok = "D";
       }
-      else if(resTall <= 4) {
+      else if(resTall <= 4.5) {
         resBok = "C";
       }
-      else if(resTall <= 5) {
+      else if(resTall <= 5.5) {
         resBok = "B";
       }
       else if(resTall <= 6) {
@@ -136,6 +136,8 @@
     }
 
     function slutt() {
+      error = false;
+
       //fjerner nye tabeller fra arrayet
       for(var i=0; i<antFag; i++) {
         if(arr[i].length > 3) {
@@ -198,7 +200,7 @@
 
   <div id="overskrift">C I S</div>
 
-      <h3>Registrer bokstavkarakteren fra hvert fag for å få bokstavsnittet ditt</h3>
+      <h3>Registrer bokstavkarakteren fra hvert fag for å få snittet ditt</h3>
 
       <div id="inputs">
       </div>
