@@ -10,19 +10,20 @@
   <script>
     window.onload = main;
 
-    //=[Prøve 1, Prøve 2, Prøve 3, sum, prover];
-    var arr = [0,0,0,0,0];
+    //=[Prøve 1, Prøve 2, Prøve 3];
+    var arr = [];
     //=[Karakter, prosent, hva man må ha på eksamen]
     var kar = [];
-    kar[0] = [90, "A"];
-    kar[1] = [80, "B"];
-    kar[2] = [60, "C"];
-    kar[3] = [50, "D"];
-    kar[4] = [40, "E"];
+    kar[0] = [90, "A",0];
+    kar[1] = [80, "B",0];
+    kar[2] = [60, "C",0];
+    kar[3] = [50, "D",0];
+    kar[4] = [40, "E",0];
 
-
-    var sum = arr[3];
-    var prover = arr[4];
+    //var sum = arr[3];
+    var sum = 0;
+    //var prover = arr[4];
+    var prover = 0;
 
     function main() {
       d("btnReg").onclick = beregn;
@@ -32,22 +33,24 @@
       //hente registreringer
       for(var i=0; i<3; i++){
           var navn = "nbrProve" + (i+1);
-          arr[i] = parseFloat(d(navn).value);
+          var svar = parseFloat(d(navn).value);
+          arr.splice(i, 0, svar);
 
           //omgjor til prosent om desimaltall
           if(arr[i] < 1) {
             arr[i] = arr[i] * 100;
           }
-
-          //skriver ut feilmelding om noe er feil
+          else if(arr[i] > 100) {
+            main();
+          }
 
           sum = sum + arr[i];
         }
         //regner ut og legger resultatet på slutten av kar
         prover = sum/3*0.4;
         for(var i=0; i<kar.length; i++) {
-          eksamen = (kar[i][0]-prover)/0.6;
-          kar[i].push = parseFloat(eksamen.toFixed(2));
+          eksamenKar = parseFloat(((kar[i][0]-prover)/0.6).toFixed(2));
+          kar[i][2] = eksamenKar;
         }
         tabell();
       }
@@ -73,9 +76,23 @@
     }
 
     function restart() {
-      //sletter tabeller i arrayene
+      //setter rader til 0 tabeller i arrayene
+      while(arr.length > 0) {
+          arr.pop();
+      }
+
+      for(var i=0; i<kar.lengt; i++) {
+        kar[i][2] = 0;
+      }
 
       //sletter innhold i txtUtskrift
+      while(d("txtUtskrift").firstChild) {
+          d("txtUtskrift").removeChild(d("txtUtskrift").firstChild);
+      }
+
+      sum = 0;
+      prover = 0;
+      beregn();
     }
 
     //setter inn document.getElementById så jeg slipper å skrive de inn
@@ -101,6 +118,10 @@
     #overskrift {
       font-size: 100px;
       font-family: 'Open Sans', sans-serif;
+    }
+    td {
+      padding-left: 10px;
+      padding-right: 10px;
     }
   </style>
 </head>
