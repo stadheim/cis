@@ -32,12 +32,7 @@
     function beregn() {
       var bredde = Math.max(document.body.scrollWidth,document.documentElement.scrollWidth,
         document.body.offsetWidth,document.documentElement.offsetWidth,document.documentElement.clientWidth);
-      if(bredde < 750) {
-        d("tekstboks").style.visibility = "hidden";
-      }
-      else {
-        d("tekstboks").style.visibility = "visible";
-      }
+      d("overskrift").innerHTML = "Bredde:" + bredde;
       //hente registreringer
       for(var i=0; i<3; i++){
           var navn = "nbrProve" + (i+1);
