@@ -20,7 +20,7 @@
     kar[2] = [60, "C",0];
     kar[3] = [50, "D",0];
     kar[4] = [40, "E",0];
-    
+
     var sum = 0;
     //var prover = arr[4];
     var prover = 0;
@@ -30,6 +30,14 @@
     }
 
     function beregn() {
+      var vidde = Math.max(
+    document.body.scrollWidth,
+    document.documentElement.scrollWidth,
+    document.body.offsetWidth,
+    document.documentElement.offsetWidth,
+    document.documentElement.clientWidth
+  );
+      d("test").innerHTML = "Screen Width: " + vidde;
       //hente registreringer
       for(var i=0; i<3; i++){
           var navn = "nbrProve" + (i+1);
@@ -110,7 +118,7 @@
 
   <div id="overskrift">Fysikk</div>
 
-      <h3>Registrer resultatene av dine 3 beste fysikkprøver </h3>
+      <h3 id="test">Registrer resultatene av dine 3 beste fysikkprøver </h3>
 
       <div class="inputs">
         Prøve 1:<br/><input type="number" id="nbrProve1"><br/>
