@@ -26,18 +26,12 @@
     var prover = 0;
 
     function main() {
+      mobil();
       d("btnReg").onclick = beregn;
     }
 
     function beregn() {
-      var vidde = Math.max(
-    document.body.scrollWidth,
-    document.documentElement.scrollWidth,
-    document.body.offsetWidth,
-    document.documentElement.offsetWidth,
-    document.documentElement.clientWidth
-  );
-      d("test").innerHTML = "Screen Width: " + vidde;
+      mobil();
       //hente registreringer
       for(var i=0; i<3; i++){
           var navn = "nbrProve" + (i+1);
@@ -101,6 +95,17 @@
       sum = 0;
       prover = 0;
       beregn();
+    }
+
+    function mobil() {
+      var bredde = Math.max(document.body.scrollWidth,document.documentElement.scrollWidth,
+        document.body.offsetWidth,document.documentElement.offsetWidth,document.documentElement.clientWidth);
+      if(bredde < 750) {
+        d("tekstboks").style.visibility = "hidden";
+      }
+      else {
+        d("tekstboks").style.visibility = "visible";
+      }
     }
 
     //setter inn document.getElementById så jeg slipper å skrive de inn
