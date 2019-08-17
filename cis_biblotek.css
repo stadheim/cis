@@ -1,0 +1,25 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  //background-image: url(fysikk.jpg);
+  //background-size: auto;
+}
+
+#overskrift {
+  font-size: 60px;
+  text-align: center;
+}
+
+#innpakning {
+  margin-left: 30%;
+}
+
+/*
+.innpakning {
+  margin: auto;;
+  padding: 10px;
+  text-align: center;
+  width: 50%;
+  padding-bottom: 20%;
+  background-color: white;
+}
+}*/
