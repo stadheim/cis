@@ -23,8 +23,15 @@
         tall.splice(0, 1, "Tall " + i);
 
         for(var j=0; j<tall.length; j++){
-            meny.innerHTML += "<option value='" + j + "' class='" + klasse[j] + "'>" + tall[j] + "</option>";
+          //riktige verdier selv om første er tallnr
+          if(j === 0) {
+            var verdien = 0;
+          }
+          else {
+            var verdien = parseInt(j-1);
+          }
 
+          meny.innerHTML += "<option value='" + verdien + "' class='" + klasse[j] + "'>" + tall[j] + "</option>";
         }
       }
       tall.splice(0, 1, "Tallnr");
