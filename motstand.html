@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Silje Stadheim">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elektro</title>
+  <script>
+    window.onload = main;
+
+    var tall = ["Tallnr","Sort","Brun","Rød","Oransje","Gul","Grønn","Blå","Lilla","Grå","Hvit"];
+    var klasse = ["bareTall","sort","brun","rod","oransje","gul","gronn","bla","lilla","gra","hvit"];
+
+    function main() {
+
+      //setter inn fargene på tallene og riktig tall
+      for(var i=1; i<4; i++) {
+        var meny = document.getElementById("tall" + i);
+        tall.splice(0, 1, "Tall " + i);
+
+        for(var j=0; j<tall.length; j++){
+            meny.innerHTML += "<option value='" + j + "' class='" + klasse[j] + "'>" + tall[j] + "</option>";
+
+        }
+      }
+      tall.splice(0, 1, "Tallnr");
+
+      d("btnReg").onclick = reg;
+
+    }
+
+    function reg() {
+      var verdiT1 = parseInt(d("tall1").value);
+      var verdiT2 = parseInt(d("tall2").value);
+      var verdiT3 = parseInt(d("tall3").value);
+      var verdiMulti = parseFloat(d("multi").value);
+
+      var motstand = parseFloat((verdiT1*100 + verdiT2*10 + verdiT3) * verdiMulti);
+
+      d("txtUtskrift").innerHTML = "Motstand på " + motstand.toFixed(0) + " Ω";
+
+      var verdiTolerans = parseInt(d("tolerans").value);
+      if(verdiTolerans !== 0) {
+        d("txtUtskrift").innerHTML += " med " + verdiTolerans +"% toleranse";
+      }
+    }
+
+    //setter inn document.getElementById så jeg slipper å skrive de inn
+    function d(elm) { //elm for element
+        return document.getElementById(elm);
+    }
+
+  </script>
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-image: url(resistance.jpg);
+      background-size: 500px;
+    }
+    .innpakning {
+      margin: auto;;
+      padding: 10px;
+      text-align: center;
+      width: 50%;
+      background-color: white;
+    }
+    #overskrift {
+      font-size: 60px;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .sort{background-color: black; color: white;}
+    .brun{background-color: brown;}
+    .rod{ background-color:red; }
+    .oransje{ background-color:orange; }
+    .gul{ background-color:yellow; }
+    .gronn{background-color:green; }
+    .bla{ background-color:blue; }
+    .lilla{ background-color:purple; }
+    .bg{ background-color:#645E14; }
+    .gra{ background-color:grey; }
+    .hvit{ background-color:white; }
+  </style>
+</head>
+<body>
+
+  <div class="innpakning">
+
+    <div id="overskrift">Motstand</div>
+
+      <h4 id="test">Hold motstanden riktig vei!</h4>
+
+      <select id="tall1" onchange="this.className=this.options[this.selectedIndex].className"></select>
+      <select id="tall2" onchange="this.className=this.options[this.selectedIndex].className"></select>
+      <select id="tall3" onchange="this.className=this.options[this.selectedIndex].className"></select>
+      <select id="multi" onchange="this.className=this.options[this.selectedIndex].className">
+        <option value="1">Multiplikator</option>
+        <option value="1" class="sort">Sort</option>
+        <option value="10" class="brun">Brun</option>
+        <option value="100" class="rod" >Rød</option>
+        <option value="1000" class="oransje">Oransje</option>
+        <option value="10000" class="gul">Gul</option>
+        <option value="100000" class="gronn">Grønn</option>
+        <option value="1000000" class="lilla">Lilla</option>
+        <option value="0.1" class="bg">Brun-grønn</option>
+        <option value="0.01" class="gra">Grå</option>
+      <select>
+      <select id="tolerans" onchange="this.className=this.options[this.selectedIndex].className">
+        <option value="0">Toleranse</option>
+        <option value="1" class="brun">Brun</option>
+        <option value="2" class="rod">Rød</option>
+        <option value="5" class="bg">Brun-grønn</option>
+        <option value="10" class="gra">Grå</option>
+      </select>
+
+      <button type="button" id="btnReg">Angi</button>
+
+      <p id="txtUtskrift" style="margin-top:50px;"></p>
+  </div>
+
+</body>
+</html>
