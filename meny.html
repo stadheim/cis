@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Silje Stadheim">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="cis_biblotek.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <title>CIS</title>
+  <script>
+    window.onload = main;
+
+    var arr = [];
+    //= ["Visningstekst","link til nettside"];
+    arr[0] = ["Gjennomsnittlig bokstavkarakter","https://stadheim.github.io/cis/cis_bokstav.html"];
+    //arr[1] = ["Elektro - motstandskalkulator","https://www.vg.no"];
+
+    function main() {
+      console.log("Kadett kommer fra det franske ordet kadett");
+
+      for(i=0; i<arr.length; i++) {
+        generer(i);
+      }
+
+    }
+
+    function generer(nr) {
+      var tekst = arr[nr][0];
+      var link = arr[nr][1];
+      var visning = tekst.link(link);
+
+      var linje = document.createElement("li");
+      var id = "linje" + nr;
+      linje.setAttribute("id",id);
+      linje.style.margin = "20px";
+      d("innpakning").appendChild(linje);
+      d(id).innerHTML = visning;
+    }
+
+    //setter inn document.getElementById så jeg slipper å skrive de inn
+    function d(elm) { //elm for element
+        return document.getElementById(elm);
+    }
+
+  </script>
+  <style>
+  </style>
+</head>
+<body>
+
+  <h1 id="overskrift">C I S</h1>
+
+  <div id="innpakning"></div>
+
+</body>
+</html>
