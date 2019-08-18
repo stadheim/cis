@@ -12,6 +12,9 @@
     var klasse = ["bareTall","sort","brun","rod","oransje","gul","gronn","bla","lilla","gra","hvit"];
 
     function main() {
+      //for å legge bakgrunnsbildet mot bunnen
+      var hoyde = window.innerHeight;;
+      document.body.style.height = hoyde + "px";
 
       //setter inn fargene på tallene og riktig tall
       for(var i=1; i<4; i++) {
@@ -39,6 +42,7 @@
 
       d("txtUtskrift").innerHTML = "Motstand på " + motstand.toFixed(0) + " Ω";
 
+      //legger til setning med toleranse
       var verdiTolerans = parseInt(d("tolerans").value);
       if(verdiTolerans !== 0) {
         d("txtUtskrift").innerHTML += " med " + verdiTolerans +"% toleranse";
@@ -55,14 +59,14 @@
     body {
       font-family: 'Open Sans', sans-serif;
       background-image: url(resistance.jpg);
+      background-position: bottom;
+      background-repeat: repeat-x;
       background-size: 500px;
     }
     .innpakning {
       margin: auto;;
       padding: 10px;
       text-align: center;
-      width: 50%;
-      background-color: white;
     }
     #overskrift {
       font-size: 60px;
