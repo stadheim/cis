@@ -211,11 +211,14 @@
     //printer linje for linje
     function print(arr,nr) {
       var utskrift = arr[nr][0] + " (" + arr[nr][1] +")</br>";
+      var link = arr[nr][3];
+      var visning = utskrift.link(link);
+
       if(arr[nr][4] === 1) {
-        d("txtUtskrift").innerHTML += utskrift.strike();
+        d("txtUtskrift").innerHTML += visning.strike();
       }
       else {
-        d("txtUtskrift").innerHTML += utskrift;
+        d("txtUtskrift").innerHTML += visning;
       }
     }
 
@@ -250,6 +253,13 @@
     #txtUtskrift {
       font-size: 16px;
       margin-top: 10px;
+    }
+    a:link, a:visited {
+      color: #DCB081;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #DC8081;
     }
     .gull{background-color: #DCB081;}
   </style>
