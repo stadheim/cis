@@ -150,6 +150,7 @@
 
     function sjekkSorter() {
       d("txtUtskrift").innerHTML = "";
+      d("txtUtskrift").style = "font-size: 16px; margin-top: 10px;";
       var valg = d("sorter").value;
 
       if(valg === "alfab" || valg === "nyest" || valg === "eldst") {
@@ -221,6 +222,7 @@
     //selvstendig funksjon til tilfeldig-knappen
     function tilfeldig() {
       d("txtUtskrift").innerHTML = "";
+      d("txtUtskrift").style = "font-size: 30px; margin-top: 20px;";
       var valg = Math.floor(Math.random() * 100);
       print(filmer,valg);
     }
@@ -234,6 +236,8 @@
   <style>
     body {
       font-family: 'Open Sans', sans-serif;
+      background-color: black;
+      color: #DCB081;
     }
     .innpakning {
       margin: auto;;
@@ -243,6 +247,11 @@
     #overskrift {
       font-size: 60px;
     }
+    #txtUtskrift {
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    .gull{background-color: #DCB081;}
   </style>
 </head>
 <body>
@@ -253,7 +262,7 @@
 
       <h3 id="txtSett"></h3>
 
-      <select id="sorter" onchange="sjekkSorter()">
+      <select id="sorter" class="gull" onchange="sjekkSorter()">
         <option value="alfab">Alfabetisk</option>
         <option value="nyest">Nyeste først</option>
         <option value="eldst">Eldste først</option>
@@ -268,7 +277,7 @@
         <option value="ferdig">Ferdig sett</option>
       </select>
 
-      <button onclick="tilfeldig()">Tilfeldig film!</button>
+      <button class="gull" onclick="tilfeldig()">Tilfeldig film!</button>
 
       <p id="txtUtskrift"></p>
   </div>
