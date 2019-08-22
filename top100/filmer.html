@@ -100,7 +100,7 @@
     filmer[86] = ["Taxi Driver",1976,"Krim","https://www.imdb.com/title/tt0075314/?ref_=fn_al_tt_1",0];
     filmer[87] = ["The Terminator",1984,"Sci-Fi","https://www.imdb.com/title/tt0088247/?ref_=fn_al_tt_1",0];
     filmer[88] = ["Titanic",1997,"Drama","https://www.imdb.com/title/tt0120338/?ref_=fn_al_tt_1",0];
-    filmer[89] = ["Toy Story",1995,"Barnefilm","https://www.imdb.com/title/tt0114709/?ref_=fn_al_tt_1",0];
+    filmer[89] = ["Toy Story",1995,"Barnefilm","https://www.imdb.com/title/tt0114709/?ref_=fn_al_tt_1",1];
     filmer[90] = ["Trainspotting",1996,"Drama","https://www.imdb.com/title/tt0117951/?ref_=fn_al_tt_1",0];
     filmer[91] = ["The Truman Show",1998,"Komedie","https://www.imdb.com/title/tt0120382/?ref_=fn_al_tt_1",0];
     filmer[92] = ["UP",2009,"Barnefilm","https://www.imdb.com/title/tt1049413/?ref_=nv_sr_5?ref_=nv_sr_5",0];
@@ -210,16 +210,23 @@
 
     //printer linje for linje
     function print(arr,nr) {
-      var utskrift = arr[nr][0] + " (" + arr[nr][1] +")</br>";
-      var link = arr[nr][3];
-      var visning = utskrift.link(link);
+      //lager hyperlink
+      var a = document.createElement("a");
+      var utskrift = arr[nr][0] + " (" + arr[nr][1] +")";
+      var tekst = document.createTextNode(utskrift);
+      a.appendChild(tekst);
+      a.href = arr[nr][3];
+      a.target = "_blank";
 
+      //skriver ut linjen (streker om sett)
       if(arr[nr][4] === 1) {
-        d("txtUtskrift").innerHTML += visning.strike();
+        a.style.setProperty("text-decoration", "line-through");
       }
-      else {
-        d("txtUtskrift").innerHTML += visning;
-      }
+      d("txtUtskrift").appendChild(a);
+
+      //lager linjeskift
+      var mybr = document.createElement('br');
+      d("txtUtskrift").appendChild(mybr);
     }
 
     //selvstendig funksjon til tilfeldig-knappen
@@ -227,7 +234,16 @@
       d("txtUtskrift").innerHTML = "";
       d("txtUtskrift").style = "font-size: 30px; margin-top: 20px;";
       var valg = Math.floor(Math.random() * 100);
-      print(filmer,valg);
+
+      if(filmer[valg][4] === 0) {
+        print(filmer,valg);
+      }
+      else if(filmer[valg][4] === 1) {
+        tilfeldig();
+      }
+      else {
+        d("txtUtskrift").innerHTML = "Noe gikk galt: prøv igjen!";
+      }
     }
 
     //setter inn document.getElementById så jeg slipper å skrive de inn
