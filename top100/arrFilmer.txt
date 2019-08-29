@@ -32,7 +32,7 @@ filmer[30] = ["Finding Nemo",2003,"Barnefilm","https://www.imdb.com/title/tt0266
 filmer[31] = ["Forrest Gump",1994,"Drama","https://www.imdb.com/title/tt0109830/?ref_=nv_sr_1?ref_=nv_sr_1",0];
 filmer[32] = ["Gladiator",2000,"Action","https://www.imdb.com/title/tt0172495/?ref_=nv_sr_1?ref_=nv_sr_1",0];
 filmer[33] = ["The Godfather",1972,"Krim","https://www.imdb.com/title/tt0068646/?ref_=nv_sr_1?ref_=nv_sr_1",0];
-filmer[34] = ["Goodfellas",1990,"Biografi","https://www.imdb.com/title/tt0099685/?ref_=nv_sr_1?ref_=nv_sr_1",0];
+filmer[34] = ["Goodfellas",1990,"Biografi","https://www.imdb.com/title/tt0099685/?ref_=nv_sr_1?ref_=nv_sr_1",1];
 filmer[35] = ["The Good, The Bad and The Ugly",1966,"Action","https://www.imdb.com/title/tt0060196/?ref_=nv_sr_1?ref_=nv_sr_1",0];
 filmer[36] = ["Good Will Hunting",1997,"Drama","https://www.imdb.com/title/tt0119217/?ref_=nv_sr_1?ref_=nv_sr_1",0];
 filmer[37] = ["The Grand Budapest Hotel",2014,"Eventyr","https://www.imdb.com/title/tt2278388/?ref_=nv_sr_1?ref_=nv_sr_1",0];
