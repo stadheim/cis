@@ -47,8 +47,15 @@
       var verdiMulti = parseFloat(d("multi").value);
 
       var motstand = parseFloat((verdiT1*100 + verdiT2*10 + verdiT3) * verdiMulti);
+      if(motstand > 1000) {
+          motstand = Math.float(motstand/1000).toFixed(1);
+          var benevning = " kΩ";
+         }
+      else {
+          var benevning = " Ω";
+         }
 
-      d("txtUtskrift").innerHTML = "Motstand på " + motstand.toFixed(0) + " Ω";
+      d("txtUtskrift").innerHTML = "Motstand på " + motstand.toFixed(0) + benevning;
 
       //legger til setning med toleranse
       var verdiTolerans = parseInt(d("tolerans").value);
