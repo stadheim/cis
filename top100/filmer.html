@@ -210,16 +210,23 @@
 
     //printer linje for linje
     function print(arr,nr) {
-      var utskrift = arr[nr][0] + " (" + arr[nr][1] +")</br>";
-      var link = arr[nr][3];
-      var visning = utskrift.link(link);
+      //lager hyperlink
+      var a = document.createElement("a");
+      var utskrift = arr[nr][0] + " (" + arr[nr][1] +")";
+      var tekst = document.createTextNode(utskrift);
+      a.appendChild(tekst);
+      a.href = arr[nr][3];
+      a.target = "_blank";
 
+      //skriver ut linjen (streker om sett)
       if(arr[nr][4] === 1) {
-        d("txtUtskrift").innerHTML += visning.strike();
+        a.style.setProperty("text-decoration", "line-through");
       }
-      else {
-        d("txtUtskrift").innerHTML += visning;
-      }
+      d("txtUtskrift").appendChild(a);
+
+      //lager linjeskift
+      var mybr = document.createElement('br');
+      d("txtUtskrift").appendChild(mybr);
     }
 
     //selvstendig funksjon til tilfeldig-knappen
@@ -227,7 +234,16 @@
       d("txtUtskrift").innerHTML = "";
       d("txtUtskrift").style = "font-size: 30px; margin-top: 20px;";
       var valg = Math.floor(Math.random() * 100);
-      print(filmer,valg);
+
+      if(filmer[valg][4] === 0) {
+        print(filmer,valg);
+      }
+      else if(filmer[valg][4] === 1) {
+        tilfeldig();
+      }
+      else {
+        d("txtUtskrift").innerHTML = "Noe gikk galt: prøv igjen!";
+      }
     }
 
     //setter inn document.getElementById så jeg slipper å skrive de inn
