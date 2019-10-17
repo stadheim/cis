@@ -1,0 +1,38 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-image: url(fourier.png);
+  background-size: auto;
+}
+.innpakning {
+  margin: auto;;
+  padding: 10px;
+  text-align: center;
+  width: 30%;
+  padding-bottom: 20%;
+  color: white;
+  background-color: black;
+}
+#overskrift {
+  font-size: 60px;
+  font-family: 'Open Sans', sans-serif;
+  color: #0019FF;
+}
+td {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#tekstboks {
+    top: 125px;
+    left: 10px;
+    position: absolute;
+    width: 150px;
+    padding: 10px;
+    border-style: solid;
+    background-color: #FF10C0;
+}
+#tekst {
+    font-style: italic;
+}
+#sitat {
+  float: right;
+}
