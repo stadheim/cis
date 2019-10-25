@@ -15,7 +15,7 @@ body {
 #overskrift {
   font-size: 60px;
   font-family: 'Open Sans', sans-serif;
-  color: #0019FF;
+  color: #0019FF; /*FF10C0 0019FF*/
 }
 td {
   padding-left: 10px;
@@ -28,11 +28,15 @@ td {
     width: 150px;
     padding: 10px;
     border-style: solid;
-    background-color: #FF10C0;
+    background-color: transparent;
 }
 #tekst {
     font-style: italic;
 }
 #sitat {
   float: right;
+}
+#egg {
+  font-size: 15px;
+  color: black;
 }
