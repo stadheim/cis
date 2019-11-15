@@ -54,9 +54,9 @@
         prosentpoeng = de1 + r1 + r2; // + de2;
         //skriver til bruker hvordan de ligger ann i faget
         var prosentpoeng_now = document.createElement("div");
-        prosentpoeng_now.innerHTML = "Så langt har du " + prosentpoeng.toFixed(2) + "% i faget.</br>";
+        prosentpoeng_now.innerHTML = "Så langt har du " + prosentpoeng.toFixed(2) + "%</br>";
         if(prosentpoeng > 40) {
-          prosentpoeng_now.innerHTML += "Du har allerede bestått!</br>";
+          prosentpoeng_now.innerHTML += "Du har allerede \"bestått\" faget!</br>";
         }
         d("txtUtskrift").appendChild(prosentpoeng_now);
 
@@ -141,7 +141,7 @@
 
   <div id="overskrift">MM2</div>
 
-      <h3 id="test">Registrer resultatene dine</h3>
+      <div style="font-size:25px">Registrer resultatene dine</div>
       <div id="egg">"- Er det en firkant?"<br/>"- Nesten... Det er en kule"</div>
 
       <div class="inputs">
