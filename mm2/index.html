@@ -31,7 +31,7 @@
     function beregn() {
       mobil();
       //hente registreringer - ENDRE 2 ettersom vi har flere ting
-      for(var i=0; i<2; i++) {
+      for(var i=0; i<3; i++) {
           var navn = "nbr" + (i+1);
           var svar = parseFloat(d(navn).value);
           arr.splice(i, 0, svar);
@@ -48,10 +48,10 @@
         //regner ut
         var de1 = arr[0]*1/3;
         var r1 = arr[1]*1/6;
-        //var r2 = arr[2]*1/6;
+        var r2 = arr[2]*1/6;
         //var de2 = arr[3]*1/3;
 
-        prosentpoeng = de1 + r1; //+ r2; // + de2;
+        prosentpoeng = de1 + r1 + r2; // + de2;
         //skriver til bruker hvordan de ligger ann i faget
         var prosentpoeng_now = document.createElement("div");
         prosentpoeng_now.innerHTML = "Så langt har du " + prosentpoeng.toFixed(2) + "% i faget.</br>";
@@ -61,7 +61,7 @@
         d("txtUtskrift").appendChild(prosentpoeng_now);
 
         for(var i=0; i<kar.length; i++) {
-          eksamenKar = parseFloat((kar[i][0]-prosentpoeng).toFixed(2));
+          eksamenKar = parseFloat((3*(kar[i][0]-prosentpoeng)).toFixed(2));
           kar[i][2] = eksamenKar;
         }
 
@@ -72,7 +72,7 @@
     function tabell() {
       //overskrift til tabellen
       var txtTabell = document.createElement("div");
-      txtTabell.innerHTML = "</br>Sammenlagt prosentpoeng nødvendig for:";
+      txtTabell.innerHTML = "</br>Prosentpoeng nødvendig på deleksamen for:";
       d("txtUtskrift").appendChild(txtTabell);
 
       var tabell = document.createElement("table");
@@ -147,7 +147,7 @@
       <div class="inputs">
         Deleksamen 1:<br/><input type="number" id="nbr1"><br/>
         Rapport 1 - Fourierrekker:<br/><input type="number" id="nbr2"><br/>
-        <!--Rapport 2 - Fouriertransformasjoner 3:<br/><input type="number" id="nbr3"><br/>-->
+        Rapport 2 - Fouriertransformasjoner:<br/><input type="number" id="nbr3"><br/>
         <!--Deleksamen 2:<br/><input type="number" id="nbr4"><br/>-->
       </div>
 
