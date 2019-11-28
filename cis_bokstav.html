@@ -9,37 +9,46 @@
   <script>
     window.onload = main;
 
-    var arr = [];
-    //= [Navn på faget,id, studiepoeng, bokstav*studiepoeng, ]
+    var arrFag = [];
+    //= [Navn på faget,studiepoeng, bokstav*studiepoeng, ]
     //1. semester
-    arr[0] = ["CyPro","cypro", 7.5];
-    arr[1] = ["MM1","mm1", 15];
-    arr[2] = ["Prog og DigTek","progogdigtek", 7.5];
+    arrFag[0] = ["CyPro",7.5];
+    arrFag[1] = ["MM1",15];
+    arrFag[2] = ["Prog/DigTek",7.5];
     //2. semester
-    arr[3] = ["Kjemi","kjemi", 5];
-    arr[4] = ["Fysikk","fysikk", 10];
-    arr[5] = ["DataKom","datakom", 10];
-    arr[6] = ["DataArk","dataark", 5];
+    arrFag[3] = ["Kjemi",5];
+    arrFag[4] = ["Fysikk",10];
+    arrFag[5] = ["DataKom",10];
+    arrFag[6] = ["DataArk",5];
     /* 3. semester
-    arr[7] = ["MM2","mm2",10];
-    arr[8] = ["Kretsteknikk","kretsteknikk",7.5];
-    arr[9] = ["Informasjonssikkerhet","infosik",5];
-    arr[10] = ["OS","os",10];
+    arrFag[7] = ["MM2",10];
+    arrFag[8] = ["Kretsteknikk",7.5];
+    arrFag[9] = ["Informasjonssikkerhet",5];
+    arrFag[10] = ["OS",10];
     // 4. semester
-    arr[11] = ["Elektro","elektro",7.5];
-    arr[12] = ["TeleKom","telekom",10];
+    arrFag[11] = ["Elektro",7.5];
+    arrFag[12] = ["TeleKom",10];
     */
 
-    var antFag = arr.length;
+    var arrKar = [];
+    //= [STOR input, liten input, grense, verdi]
+    arrKar[0] = ["A","a",90,95];
+    arrKar[1] = ["B","b",80,85];
+    arrKar[2] = ["C","c",60,70];
+    arrKar[3] = ["D","d",50,55];
+    arrKar[4] = ["E","e",40,55];
+    arrKar[5] = ["F","f",0,0];
+
+    var antFag = arrFag.length;
     var antStudiepoeng = 0;
     var error = false;
 
     function main() {
-      for(var i=0; i<arr.length; i++){
+      for(var i=0; i<antFag; i++){
         //telle antall studiepoeng sålangt
-        antStudiepoeng = antStudiepoeng + arr[i][2];
+        antStudiepoeng = antStudiepoeng + arrFag[i][1];
         //felt for bokstavkarakterene
-        d("inputs").innerHTML += "" + arr[i][0] + ":</br><input type='input' id=txt" + arr[i][1] + "><br/>";
+        d("inputs").innerHTML += "" + arrFag[i][0] + ":</br><input type='input' id=txt" + arrFag[i][0] + "><br/>";
       }
       vent();
     }
@@ -51,12 +60,11 @@
     function hent() {
       //hente registreringer
       for(var i=0; i<antFag; i++){
-        var navn = "txt" + arr[i][1];
+        var navn = "txt" + arrFag[i][0];
         var bokstav = d(navn).value;
-      //gjør om verdier til tall i enden av array
+        //gjør om verdier til tall i enden av array
         tilTall(bokstav, i);
       }
-
       //beregn snitt hvis ingenting er feil
       if(error === false) {
         beregn();
@@ -67,26 +75,17 @@
     }
 
     function tilTall(bokstav, arrNum) {
+      //lokal feilsøkingsvariabel
+      var treff = false;
       //bokstaver over til tall
-      if(bokstav === "a" || bokstav == "A") {
-        fag = 6;
+      for(var i=0; i<arrKar.length; i++) {
+        if(bokstav == arrKar[i][0] || bokstav == arrKar[i][1]) {
+          fag = arrKar[i][3];
+          treff = true;
+        }
       }
-      else if(bokstav === "b" || bokstav == "B") {
-        fag = 5;
-      }
-      else if(bokstav === "c" || bokstav == "C") {
-        fag = 4;
-      }
-      else if(bokstav === "d" || bokstav == "D") {
-        fag = 3;
-      }
-      else if(bokstav === "e" || bokstav == "E") {
-        fag = 2;
-      }
-      else if(bokstav === "f" || bokstav == "F") {
-        fag = 1;
-      }
-      else {
+      //slår ut om det ikke var noen treff
+      if(treff == false) {
         d("txtUtskrift").innerHTML = "404 ERROR</br>Noe gikk galt!</br>Har du skrevet inn gyldige karakterer fra A til F?</br>";
         error = true;
       }
@@ -94,16 +93,16 @@
       //legger kun inn i array om ingenting er feil
       if(error === false) {
         //tall ganget med studiepoeng
-        fag = fag * arr[arrNum][2];
-        //leger resultat inn i array på plass arr[i][3]
-        arr[arrNum].push(fag);
+        fag = fag * arrFag[arrNum][1];
+        //leger resultat inn i array på plass arrFag[i][2]
+        arrFag[arrNum][2] = fag;
       }
     }
 
     function beregn() {
       var karakter = 0;
       for(var i=0; i<antFag; i++){
-        karakter = karakter + arr[i][3];
+        karakter = karakter + arrFag[i][2];
       }
       karakter = karakter/antStudiepoeng;
       //karakter i tall skal nå beregnes til bokstavkarakteren
@@ -111,26 +110,14 @@
     }
 
     function tilBokstav(resTall) {
-      var resBok;
-      if(resTall <= 1.5) {
-        resBok = "F";
+      var resBok = "";
+      for(var i=arrKar.length-1; i>=0; i--) {
+        if(resTall > arrKar[i][2]) {
+          resBok = arrKar[i][0];
+        }
       }
-      else if(resTall <= 2.5) {
-        resBok = "E";
-      }
-      else if(resTall <= 3.5) {
-        resBok = "D";
-      }
-      else if(resTall <= 4.5) {
-        resBok = "C";
-      }
-      else if(resTall <= 5.5) {
-        resBok = "B";
-      }
-      else if(resTall <= 6) {
-        resBok = "A";
-      }
-      else {
+      //slår kun ut om snittet er under 0
+      if(resBok == "") {
         d("txtUtskrift").innerHTML = "404 ERROR</br>Noe gikk galt med omgjøring fra snitt til bokstavkarakter.</br>Har du skrevet inn gyldige karakterer fra A til F?</br>";
       }
 
@@ -141,7 +128,7 @@
       d("txtUtskrift").innerHTML = "";
 
       var utskrift = document.createElement("div");
-      utskrift.innerHTML = "Snittet ditt er " + tall.toFixed(1) + "</br>Det tilsvarer et snitt på <b>" + bok + "</b>";
+      utskrift.innerHTML = "Snittet ditt er " + tall.toFixed(1) + "%</br>Det tilsvarer et snitt på <b>" + bok + "</b>";
       d("txtUtskrift").appendChild(utskrift);
 
       slutt();
@@ -149,34 +136,30 @@
 
     function slutt() {
       error = false;
-
       //fjerner nye tabeller fra arrayet
       for(var i=0; i<antFag; i++) {
-        if(arr[i].length > 3) {
-          arr[i].splice(3, 1);
+        if(arrFag[i].length > 3) {
+          arrFag[i].splice(3, 1);
         }
       }
-
       //lager knapp
       var knapp = document.createElement("button");
       knapp.innerHTML = "Start på nytt";
       d("txtUtskrift").appendChild(knapp);
       knapp.onclick = restart;
-
       //hvis man endrer og trykker "angi" direkte
       d("btnReg").onclick = hent;
     }
 
     function restart() {
       error = false;
-
       //nullstiller txtUtskrift
       while(d("txtUtskrift").firstChild) {
           d("txtUtskrift").removeChild(d("txtUtskrift").firstChild);
       }
       //nullstille felter
       for(var i=0; i<antFag; i++){
-        var navn = "txt" + arr[i][1];
+        var navn = "txt" + arrFag[i][0];
         d(navn).value = "";
       }
 
@@ -187,9 +170,6 @@
     function d(elm) { //elm for element
         return document.getElementById(elm);
     }
-    //egg
-    document.cookie = "username=John Doe";
-
   </script>
   <style>
     body {
@@ -213,7 +193,7 @@
 
   <div id="overskrift">C I S</div>
 
-      <h3>Registrer bokstavkarakteren fra hvert fag for å få snittet ditt</h3>
+      <h3 id="underskrift">Registrer bokstavkarakteren fra hvert fag for å få snittet ditt</h3>
 
       <div id="inputs">
       </div>
@@ -223,6 +203,14 @@
 
       <p id="txtUtskrift"></p>
   </div>
-
+  <script>
+    var egg = document.createElement("div");
+    egg.id = "egg";
+    egg.innerHTML = "Alle MÅ rullere i volleyball for at vi skal vinne!";
+    egg.style = "height:0px; color:#5d1869;";
+    d("underskrift").appendChild(egg);
+    d("egg").onmouseover = function() {d("egg").style.color = "white";};
+    d("egg").onmouseleave = function() {d("egg").style.color = "#5d1869";};
+  </script>
 </body>
 </html>
