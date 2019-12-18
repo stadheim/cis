@@ -49,9 +49,9 @@
         var de1 = arr[0]*1/3;
         var r1 = arr[1]*1/6;
         var r2 = arr[2]*1/6;
-        //var de2 = arr[3]*1/3;
+        var de2 = arr[3]*1/3;
 
-        prosentpoeng = de1 + r1 + r2; // + de2;
+        prosentpoeng = de1 + r1 + r2 + de2;
         //skriver til bruker hvordan de ligger ann i faget
         var prosentpoeng_now = document.createElement("div");
         prosentpoeng_now.innerHTML = "Så langt har du " + prosentpoeng.toFixed(2) + "%</br>";
@@ -148,7 +148,7 @@
         Deleksamen 1:<br/><input type="number" id="nbr1"><br/>
         Rapport 1 - Fourierrekker:<br/><input type="number" id="nbr2"><br/>
         Rapport 2 - Fouriertransformasjoner:<br/><input type="number" id="nbr3"><br/>
-        <!--Deleksamen 2:<br/><input type="number" id="nbr4"><br/>-->
+        Deleksamen 2:<br/><input type="number" id="nbr4"><br/>
       </div>
 
       </br>
