@@ -9,10 +9,32 @@
   <script>
     window.onload = main;
 
-    function main() {
+    var arr = [];
+    //= ["Visningstekst","link til nettside"];
+    arr[0] = ["Tilbake til dokumentasjon","https://stadheim.github.io/cis/dok/cisctf/index.html"];
+    arr[1] = ["Sette opp nettsiden (CTFd)","https://stadheim.github.io/cisctf/ctfd.html"];
+    arr[2] = ["Writeups","https://stadheim.github.io/cisctf/writeups.html"];
 
+    function main() {
+      console.log("Kadett kommer fra det franske ordet... kadett");
+
+      for(i=0; i<arr.length; i++) {
+        generer(i);
+      }
     }
 
+    function generer(nr) {
+      var tekst = arr[nr][0];
+      var link = arr[nr][1];
+      var visning = tekst.link(link);
+
+      var linje = document.createElement("li");
+      var id = "linje" + nr;
+      linje.setAttribute("id",id);
+      linje.style.margin = "20px";
+      d("innpakning").appendChild(linje);
+      d(id).innerHTML = visning;
+    }
 
     //setter inn document.getElementById så jeg slipper å skrive de inn
     function d(elm) { //elm for element
@@ -42,7 +64,7 @@
 </head>
 <body>
 
-  <h1 id="overskrift">Dokumentasjon - CTFd</h1>
+  <h1 id="overskrift">Dokumentasjon/cisCTF</h1>
 
   <div id="innpakning"></div>
 
