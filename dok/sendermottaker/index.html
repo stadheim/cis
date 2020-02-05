@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Silje Stadheim">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <title>cisCTF/writeups</title>
+  <script>
+    window.onload = main;
+
+    function main() {
+      //tilbakeknapp
+      var tekst = "<-- Tilbake til dokumentasjon";
+      var link = "https://stadheim.github.io/cis/dok/index.html";
+      d("innpakning").innerHTML = tekst.link(link);
+    }
+
+    //setter inn document.getElementById så jeg slipper å skrive de inn
+    function d(elm) { //elm for element
+        return document.getElementById(elm);
+    }
+
+  </script>
+  <style>
+    html, body {
+      font-family: 'Open Sans', sans-serif;
+      height: 75%;
+    }
+    #overskrift {
+      text-align: center;
+    }
+    a:link, a:visited {
+      color: black;
+      text-decoration: none;
+    }
+    a:hover {
+      color: grey;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="overskrift">Dokumentasjon/Sender-Mottaker</h1>
+
+  <div id="innpakning">
+    
+
+  </div>
+
+</body>
+</html>
