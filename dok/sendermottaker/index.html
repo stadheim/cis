@@ -5,7 +5,7 @@
   <meta name="author" content="Silje Stadheim">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-  <title>cisCTF/writeups</title>
+  <title>S/M (433MHz)</title>
   <script>
     window.onload = main;
 
@@ -13,7 +13,7 @@
       //tilbakeknapp
       var tekst = "<-- Tilbake til dokumentasjon";
       var link = "https://stadheim.github.io/cis/dok/index.html";
-      d("innpakning").innerHTML = tekst.link(link);
+      d("link").innerHTML = tekst.link(link);
     }
 
     //setter inn document.getElementById så jeg slipper å skrive de inn
@@ -26,9 +26,18 @@
     html, body {
       font-family: 'Open Sans', sans-serif;
       height: 75%;
-    }
-    #overskrift {
       text-align: center;
+    }
+    #link {
+      text-align: left;
+    }
+    #tabell {
+      margin: 0 auto;
+      width: 100%;
+    }
+    .kolonner {
+      text-align: center;
+      width: 50%;
     }
     a:link, a:visited {
       color: black;
@@ -42,10 +51,28 @@
 <body>
 
   <h1 id="overskrift">Dokumentasjon/Sender-Mottaker (433MHz)</h1>
+  <div id="link"></div>
+  <iframe width="62%" height="300px" style="margin:25px" src="https://www.youtube.com/embed/KA_YE7AvFn0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
   <div id="innpakning">
-
-
+    <table id="tabell">
+      <td class="kolonner">
+        <img height="50px" src="transmit_bilde.jpeg" alt="Bildet lastet ikke">
+        <h3>Sender</h3>
+        Lille kvadratiske</br>
+        Mer info kommer
+        <h4>Kode til å laste i Arduino</h4>
+        <iframe width="100%" height="300px" src="E:\OneDrive\CIS\_Diverse\javascript\cis\dok\sendermottaker\trasmit_code.txt" frameborder="0" ></iframe>
+      </td>
+      <td class="kolonner">
+        <img height="50px" src="receiver_bilde.jpeg" alt="Bildet lastet ikke">
+        <h3>Mottaker</h3>
+        Rektangulære</br>
+        Mer info kommer
+        <h4>Kode til å laste i Arduino</h4>
+        <iframe width="100%" height="300px" src="E:\OneDrive\CIS\_Diverse\javascript\cis\dok\sendermottaker\receiver_code.txt" frameborder="0" ></iframe
+      </td>
+    </table>
   </div>
 
 </body>

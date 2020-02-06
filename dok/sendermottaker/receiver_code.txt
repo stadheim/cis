@@ -1,0 +1,53 @@
+#include <RH_ASK.h>
+//#ifdef RH_HAVE_HARDWARE_SPI
+#include <SPI.h> // Not actually used but needed to compile
+//#endif
+
+//// (speed, receive, transmit, push to talk)
+RH_ASK driver(2000, 4, 0, 0); // pin 4
+// teller for lys
+int lys = 0;
+
+void setup()
+{
+  //LED in pin 3
+   pinMode(3, OUTPUT);
+
+  #ifdef RH_HAVE_SERIAL
+      Serial.begin(115200);    // Debugging only
+  #endif
+      if (!driver.init())
+  #ifdef RH_HAVE_SERIAL
+           Serial.println("init failed");
+  #else
+    ;
+  #endif
+}
+
+void loop()
+{
+  uint8_t buf[RH_ASK_MAX_MESSAGE_LEN];
+  uint8_t buflen = sizeof(buf);
+
+  String rcv;
+  if (driver.recv(buf, &buflen)) // Non-blocking
+  {
+    //receive text and print
+    for (int i=0; i<buflen; i++) {
+      rcv += (char)buf[i];
+    }
+    Serial.println(rcv);
+
+    //LED
+    if(lys == 0) {
+       //turn ON
+       digitalWrite(3, HIGH);
+       lys++;
+    }
+    else {
+        //turn OFF
+        digitalWrite(3, LOW);
+        lys = 0;
+      }
+  }
+}
