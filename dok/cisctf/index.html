@@ -11,11 +11,15 @@
 
     var arr = [];
     //= ["Visningstekst","link til nettside"];
-    arr[0] = ["Tilbake til dokumentasjon","https://stadheim.github.io/cis/dok/index.html"];
-    arr[1] = ["Writeups","https://stadheim.github.io/cisctf/writeups.html"];
-    arr[2] = ["Sette opp nettsiden (CTFd)","https://stadheim.github.io/cisctf/ctfd.html"];
+    arr[0] = ["Writeups","https://stadheim.github.io/cisctf/writeups.html"];
+    arr[1] = ["Sette opp nettsiden (CTFd)","https://stadheim.github.io/cisctf/ctfd.html"];
 
     function main() {
+      //tilbakeknapp
+      var tekst = "<-- Tilbake til CIS menyen";
+      var link = "https://stadheim.github.io/cis/meny.html";
+      d("link").innerHTML = tekst.link(link);
+
       for(i=0; i<arr.length; i++) {
         generer(i);
       }
@@ -45,7 +49,11 @@
       font-family: 'Open Sans', sans-serif;
     }
     #overskrift {
-      margin-left: 20%;
+      text-align: center;
+    }
+    #link {
+      text-align: left;
+      margin-bottom: 30px;
     }
     #innpakning {
       margin-left: 10%;
@@ -62,7 +70,7 @@
 <body>
 
   <h1 id="overskrift">Dokumentasjon/cisCTF</h1>
-
+  <div id="link"></div>
   <div id="innpakning"></div>
 
 </body>
