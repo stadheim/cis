@@ -36,8 +36,8 @@
       width: 100%;
     }
     .kolonner {
-      text-align: center;
       width: 50%;
+      vertical-align: top;
     }
     a:link, a:visited {
       color: black;
@@ -56,22 +56,50 @@
 
   <div id="innpakning">
     <table id="tabell">
-      <td class="kolonner">
-        <img height="50px" src="transmit_bilde.jpeg" alt="Bildet lastet ikke">
-        <h3>Sender</h3>
-        Lille kvadratiske</br>
-        Mer info kommer
-        <h4>Kode til å laste i Arduino</h4>
-        <iframe width="100%" height="300px" src="trasmit_code.txt" frameborder="0" ></iframe>
-      </td>
-      <td class="kolonner">
-        <img height="50px" src="receiver_bilde.jpeg" alt="Bildet lastet ikke">
-        <h3>Mottaker</h3>
-        Rektangulære</br>
-        Mer info kommer
-        <h4>Kode til å laste i Arduino</h4>
-        <iframe width="100%" height="300px" src="receiver_code.txt" frameborder="0" ></iframe
-      </td>
+      <tr>
+        <td class="kolonner">
+          <img height="50px" src="transmit_bilde.jpeg" alt="Bildet lastet ikke">
+          <h3>Sender</h3>
+        </td>
+        <td class="kolonner">
+          <img height="50px" src="receiver_bilde.jpeg" alt="Bildet lastet ikke">
+          <h3>Mottaker</h3>
+        </td>
+      </tr>
+      <tr>
+        <td class="kolonner">
+          Lille kvadratiske</br>
+          Mer info kommer her
+        </td>
+        <td class="kolonner">
+          Rektangulære</br>
+          Mer info kommer også
+        </td>
+      </tr>
+      </table>
+
+      <h4>Kretstegninger</h4>
+      <table id="tabell">
+      <tr>
+        <td class="kolonner">
+          <img height="35%" src="sender_krets.jpg" alt="Kretstegning for senderen">
+        </td>
+        <td class="kolonner">
+          <img height="35%" src="mottaker_krets.jpg" alt="Kretstegning for mottakeren">
+        </td>
+      </tr>
+    </table>
+    <h4>Koder til å laste i Arduino</h4>
+
+    <table id="tabell">
+      <tr>
+        <td class="kolonner">
+          <iframe width="100%" height="300px" src="trasmit_code.txt" frameborder="0" ></iframe>
+        </td>
+        <td class="kolonner">
+          <iframe width="100%" height="300px" src="receiver_code.txt" frameborder="0" ></iframe>
+        </td>
+      </tr>
     </table>
   </div>
 
