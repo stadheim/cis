@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Silje Stadheim">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <title>Svømmeprogram</title>
+  <script type="text/javascript">
+    window.onload = main;
+
+    var arr = [];
+    //filnavn, lengde i km, fargekode (g,b,r,s)
+    arr[0] = ["2km",2,"b"];
+    arr[1] = ["3km",3,"r"];
+    arr[2] = ["benspark_3.45km",3.45,"s"];
+    arr[3] = ["eksplosivt_2km",2,"s"];
+
+    function main() {
+      for(i=0; i<arr.length; i++) {
+        nyRamme(i);
+      }
+    }
+
+    function nyRamme(nr) {
+        var path = "./pdfprogram/" + arr[nr][0] + ".pdf#toolbar=0&navpanes=0";
+        //div til innhold
+        var div = document.createElement("div");
+        div.className = "ramme";
+        //overskrift
+        var navn = document.createElement("h2");
+        navn.innerHTML = arr[nr][0].replace(/^.*[\\\/]/,"")
+        //navn.innerHTML = arr[nr][0];
+        navn.style.color = "#5D1869";
+        //dokumentasjonsramme
+        var ramme = document.createElement("iframe");
+        ramme.setAttribute("src",path);
+        ramme.style.border = "1px solid #5D1869";
+        ramme.style.height = "30vh";
+        ramme.style.flex = "1 0 21%";
+        //append alt
+        div.appendChild(navn);
+        div.appendChild(ramme);
+        d("vegg").appendChild(div);
+    }
+
+
+    //setter inn document.getElementById så jeg slipper å skrive de inn
+    function d(elm) { //elm for element
+        return document.getElementById(elm);
+    }
+
+  </script>
+  <style>
+    html, body {
+      font-family: 'Open Sans', sans-serif;
+      height: 75%;
+    }
+    #overskrift {
+      text-align: center;
+      padding-top: 0.5vw;
+      font-size: 3.5vw;
+    }
+    #vegg {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .ramme {
+      text-align: center;
+      padding-top: 20px;
+      padding-left: 20px;
+    }
+    a:link, a:visited {
+      color: black;
+      text-decoration: none;
+    }
+    a:hover {
+      color: grey;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="overskrift">Team Skynet - Svømmeprogram</h1>
+
+  <div id="innpakning"></div>
+  <div id="vegg"></div>
+
+</body>
+</html>
