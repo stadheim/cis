@@ -20,11 +20,28 @@
     arr[6] = ["medley_1km",1,"g"];
     arr[7] = ["medley_3km",3,"r"];
     arr[8] = ["medley_sprint_2km",2,"r"];
-    arr[9] = ["medley_trekkspill",0,"b"];
-    arr[10] = ["medley_trekkspill2",0,"b"];
+    arr[9] = ["medley_trekkspill",-1,"b"];
+    arr[10] = ["medley_trekkspill2",-1,"b"];
     arr[11] = ["sprint_rolig",2.55,"b"];
 
     function main() {
+      start();
+      //filtrere programmene
+      d("btnFilt").onclick = filtrer;
+      //nullstille filtre
+      d("btnNull").onclick = start;
+    }
+
+    //sett plakater på vegg
+    function start() {
+      //slett alt som eventuelt er på veggen
+      tomVegg();
+      //fjern eventuelt innhold i input
+      d("vanskelighetsgrad").value = "h";
+      d("vanskelighetsgrad").className = "h";
+      d("minimum").value = "";
+      d("maximum").value = "";
+      //skriv ut alle programmene
       for(i=0; i<arr.length; i++) {
         nyRamme(i);
       }
@@ -34,23 +51,20 @@
         //hente riktig fil
         var path = "./pdfprogram/" + arr[nr][0] + ".pdf#toolbar=0&navpanes=0";
         //finne riktig fargekode
-        if(arr[nr][2] == "g") {var farge = "#538135";}        //grønn
-        else if(arr[nr][2] == "r") {var farge = "#C00000";}     //rød
-        else if(arr[nr][2] == "b") {var farge = "#2E74B5";}    //blå
-        else if(arr[nr][2] == "s") {var farge = "#000000";}   //sort
-        else {var farge = black; console.log("Noe galt med fargen til " + arr[nr][0])}
+        var farge = arr[nr][2];
         //div til innhold
         var div = document.createElement("div");
         div.className = "ramme";
         //overskrift
         var navn = document.createElement("h2");
         navn.innerHTML = arr[nr][0].replace(/^.*[\\\/]/,"");
-        navn.style.color = farge;
+        navn.className = farge;
         //dokumentasjonsramme
         var ramme = document.createElement("iframe");
         ramme.setAttribute("src",path);
-        ramme.style.border = "1px solid " + farge;
-        ramme.style.height = "30vh";
+        ramme.style.border = "1px solid ";
+        ramme.className = farge;
+        ramme.style.height = "50vh";
         ramme.style.flex = "1 0 21%";
         //append alt
         div.appendChild(navn);
@@ -58,6 +72,48 @@
         d("vegg").appendChild(div);
     }
 
+    //filtrer vekk program
+    function filtrer() {
+      //henter verdier gitt
+      var vansk = d("vanskelighetsgrad").value;
+      var min = parseFloat(d("minimum").value);
+      var max = parseFloat(d("maximum").value);
+      //setter min og max verdier riktig om de er tomme
+      if(isNaN(min)) {
+        min = 0;
+      }
+      if(isNaN(max)) {
+        max = Infinity;
+      }
+      //slett alt som eventuelt er på veggen
+      tomVegg();
+      //sjekker om max distanse er høyere enn min
+      if(max < min) {
+        d("vegg").innerHTML = "</br>Skriv inn en gyldig distanse";
+      }
+      //går videre om riktig
+      else{
+        //ser gjennom alle program. Velger på vanskelighetsgrad først, så på distanse.
+        for(i=0; i<arr.length; i++) {
+          if(vansk == "h") {
+            if(min <= arr[i][1] && max >= arr[i][1] || arr[i][1] == -1) {
+              nyRamme(i);
+            }
+          }
+          else if (vansk == arr[i][2]) {
+            if(min <= arr[i][1] && max >= arr[i][1] || arr[i][1] == -1)
+              nyRamme(i);
+          }
+        }
+      }
+    }
+
+    function tomVegg() {
+      //tømmer vegger
+      while(d("vegg").firstChild) {
+          d("vegg").removeChild(d("vegg").firstChild);
+      }
+    }
 
     //setter inn document.getElementById så jeg slipper å skrive de inn
     function d(elm) { //elm for element
@@ -75,6 +131,9 @@
       padding-top: 0.2vw;
       font-size: 3vw;
     }
+    #innpakning {
+      text-align: center;
+    }
     #vegg {
       display: flex;
       flex-wrap: wrap;
@@ -84,19 +143,39 @@
       text-align: center;
       padding-left: 20px;
     }
-    a:link, a:visited {
-      color: black;
-      text-decoration: none;
-    }
-    a:hover {
-      color: grey;
-    }
+    .linje{display: inline-flex; margin-right: 3vh;}
+    .g {color: #538135;}
+    .r {color: #C00000;}
+    .b {color: #2E74B5;}
+    .s {color: #000000;}
+    .h {background-color: #FFFFFF; color: #000000;}
+    .dist{width: 7vh; height: 19px;}
   </style>
 </head>
 <body>
   <h1 id="overskrift">Team Skynet - Svømmeprogram</h1>
 
-  <div id="innpakning"></div>
+  <div id="innpakning">
+    <select id="vanskelighetsgrad" class="linje" style="padding-top:2px;" onchange="this.className=this.options[this.selectedIndex].className">
+      <option value="h" class="h">Vanskelighetsgrad</option>
+      <option value="g" class="g">Lett</option>
+      <option value="b" class="b">Middels</option>
+      <option value="r" class="r">Hard</option>
+      <option value="s" class="s">Krevende</option>
+    </select>
+
+    <div id="distanse" class="linje" >
+      Distanse:
+      <input type="number" id="minimum" class="dist" min="0" step="0.1" placeholder="fra" onfocus="this.value=''">
+      -
+      <input type="number" id="maximum" class="dist" min="0" step="0.1" placeholder="til" onfocus="this.value=''">
+      km
+    </div>
+
+    <button type="button" id="btnFilt" class="linje" style="padding-top:2px;">Filtrer</button>
+    <button type="button" id="btnNull" class="linje" style="padding-top:2px;">Nullstill</button>
+  </div>
+
   <div id="vegg"></div>
 
 </body>
