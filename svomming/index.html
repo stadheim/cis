@@ -132,7 +132,7 @@
       padding-top: 0.2vw;
       font-size: 3vw;
     }
-    #innpakning {
+    #meny {
       text-align: center;
     }
     #vegg {
@@ -156,7 +156,7 @@
 <body>
   <h1 id="overskrift">Team Skynet - Svømmeprogram</h1>
 
-  <div id="innpakning">
+  <form id="meny"  onkeydown="if (event.keyCode == 13) {filtrer();}">
     <select id="vanskelighetsgrad" class="linje" style="padding-top:2px;" onchange="this.className=this.options[this.selectedIndex].className">
       <option value="h" class="h">Vanskelighetsgrad</option>
       <option value="g" class="g">Lett</option>
@@ -175,7 +175,7 @@
 
     <button type="button" id="btnFilt" class="linje" style="padding-top:2px;">Filtrer</button>
     <button type="button" id="btnNull" class="linje" style="padding-top:2px;">Nullstill</button>
-  </div>
+  </form>
 
   <div id="vegg"></div>
 
