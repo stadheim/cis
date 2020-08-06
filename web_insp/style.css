@@ -1,0 +1,18 @@
+body {
+  font-family: 'Open Sans Condensed', sans-serif;
+  background-color: black;
+  color: white;
+  text-align: center;
+  align-content: center;
+}
+/* Her blir alt pent å se på
+  og ja her er 3. delen av flagget: _0m1n5p} */
+#overskrift {
+  font-size: 30px;
+}
+#divBilde {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

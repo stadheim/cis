@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Silje Stadheim">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+  <title>Venstreklikk</title>
+  <script>
+    window.onload = main;
+
+    var bildenr = 0;
+
+    function main() {
+        bildekarusell();
+    }
+    // Javascript, php og mye annet kan brukes til å lage dynamiske nettsider
+    //    Her er 2. del av flagget: v45k_=_5l1pp3 */
+
+    function bildekarusell() {
+        var ramme = d("divBilde");
+        ramme.style.height = "450px";
+        ramme.style.backgroundRepeat = "no-repeat";
+        ramme.style.backgroundSize = "contain";
+        ramme.style.transition = "1s";
+        //var bildenr = Math.floor((Math.random()*8)+1);
+        if(bildenr >= 9) {
+            bildenr = 1;
+        }
+        else {
+            bildenr++;
+        }
+        d("divBilde").style.backgroundImage = "url('cis" + bildenr + ".jpg')";
+        setTimeout(bildekarusell, 5000);
+    }
+
+    function d(elm) { //elm for element
+        return document.getElementById(elm);
+    }
+
+  </script>
+  <style>
+  </style>
+</head>
+<body>
+  <div id="overskrift">Inspeksjon kan gjøres på mer enn kun rom og våpen</div>
+
+  <!-- Hardkoding skjer i body!
+      Her er 1. del av flagget: cisCTF{0rd3n7l16_ -->
+
+  <div id="divBilde"></div>
+
+</body>
+</html>
