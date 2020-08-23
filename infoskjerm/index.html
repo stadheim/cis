@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Silje Stadheim">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap" rel="stylesheet">
+  <title>info</title>
+  <script>
+    window.onload = main;
+
+    function main() {
+      ctfNyoppgave();
+    }
+
+    function ctfNyoppgave() {
+      var oppgavenavn = "Sjakkmatt";
+      var dato = "Søn 23/8";
+
+      var txtOverskrift = document.createElement("div");
+      txtOverskrift.innerHTML = "cis<span style='color:black;'>CTF</span></br><span style='font-size:5vh;'>" + dato + " - Ny oppgave:</span></br>" + oppgavenavn;
+      txtOverskrift.style.fontSize = "10vh";
+      txtOverskrift.style.color = "#5d1869";
+      txtOverskrift.style.textAlign = "center";
+      txtOverskrift.style.marginTop = "20vh";
+      txtOverskrift.style.fontFamily = "Source Sans Pro";
+      d("innpakning").appendChild(txtOverskrift);
+    }
+
+    //setter inn document.getElementById så jeg slipper å skrive de inn
+    function d(elm) { //elm for element
+        return document.getElementById(elm);
+    }
+
+  </script>
+  <style>
+    body {
+    }
+    #innpakning {
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="innpakning"></div>
+
+</body>
+</html>
