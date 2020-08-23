@@ -10,12 +10,22 @@
     window.onload = main;
 
     function main() {
+      annonse();
 
 
-      ctfNyoppgave();
+      //ctfNyoppgave();
     }
 
-    function skynet_timeplan() {
+    function annonse() {
+      var txtTekst = document.createElement("div");
+      txtTekst.innerHTML = "Vil du ha noe på skjermen?<br><br><span style='font-size:5vh'>Send e-post til:<br>cistekut@gmail.com</span>";
+      txtTekst.style.fontSize = "10vh";
+      txtTekst.style.color = "white";
+      document.body.style.backgroundColor = "black";
+      txtTekst.style.textAlign = "center";
+      txtTekst.style.marginTop = "5vh";
+      txtTekst.style.fontFamily = "Arial";
+      d("innpakning").appendChild(txtTekst);
 
     }
 
