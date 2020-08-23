@@ -10,19 +10,26 @@
     window.onload = main;
 
     function main() {
+
+
       ctfNyoppgave();
     }
 
-    function ctfNyoppgave() {
-      var oppgavenavn = "Jacob 1";
-      var dato = "Man 19/9";
+    function skynet_timeplan() {
 
+    }
+
+    function ctfNyoppgave() {
+      //variabler som endres
+      var oppgavenavn = "asm";
+      var dato = "Man 31/8";
+      //IKKE endre
       var txtOverskrift = document.createElement("div");
       txtOverskrift.innerHTML = "cis<span style='color:black;'>CTF</span></br><span style='font-size:5vh;'>" + dato + " - Ny oppgave:</span></br>" + oppgavenavn;
-      txtOverskrift.style.fontSize = "10vh";
+      txtOverskrift.style.fontSize = "20vh";
       txtOverskrift.style.color = "#5d1869";
       txtOverskrift.style.textAlign = "center";
-      txtOverskrift.style.marginTop = "20vh";
+      txtOverskrift.style.marginTop = "5vh";
       txtOverskrift.style.fontFamily = "Source Sans Pro";
       d("innpakning").appendChild(txtOverskrift);
     }
