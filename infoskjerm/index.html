@@ -27,13 +27,26 @@
 
     }
 
-    function ctfNyoppgave() {
+    function ctfNyoppgave(i) {
       //variabler som endres
-      var oppgavenavn = "asm";
+      var navn = ["asm","Klippet"];
       var dato = "Mandag 31/8";
+      var i = 0;
       //IKKE endre
+      ctfIkkeendre(navn,dato,i);
+      setInterval(function(){
+        if(i >= navn.length-1){i=0;}else{i++;}
+        ctfIkkeendre(navn,dato,i);
+      }, 3000);
+    }
+    function ctfIkkeendre(navnUt,dato,i){
+      //IKKE endre
+      antUt = navnUt.length;
+      var entallflertall = "Ny utfordring";
+      if(antUt > 1) {entallflertall = "Nye utfordringer";}
+      while(d("innpakning").firstChild) {d("innpakning").removeChild(d("innpakning").firstChild);}
       var txtOverskrift = document.createElement("div");
-      txtOverskrift.innerHTML = "cis<span style='color:black;'>CTF</span></br><span style='font-size:5vh;'>" + dato + " - Ny oppgave:</span></br>" + oppgavenavn;
+      txtOverskrift.innerHTML = "cis<span style='color:black;'>CTF</span></br><span style='font-size:5vh;'>" + dato + " - " + entallflertall +":</span></br>" + navnUt[i];
       txtOverskrift.style.fontSize = "20vh";
       txtOverskrift.style.color = "#5d1869";
       txtOverskrift.style.textAlign = "center";
