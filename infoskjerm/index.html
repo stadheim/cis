@@ -46,9 +46,10 @@
       if(antUt > 1) {entallflertall = "Nye utfordringer";}
       while(d("innpakning").firstChild) {d("innpakning").removeChild(d("innpakning").firstChild);}
       var txtOverskrift = document.createElement("div");
-      txtOverskrift.innerHTML = "cis<span style='color:black;'>CTF</span></br><span style='font-size:5vh;'>" + dato + " - " + entallflertall +":</span></br>" + navnUt[i];
+      txtOverskrift.innerHTML = "<span style='color:#7d208d;'>cis</span>CTF</br><span style='font-size:5vh;'>" + dato + " - " + entallflertall +":</span></br>" + navnUt[i];
       txtOverskrift.style.fontSize = "20vh";
-      txtOverskrift.style.color = "#5d1869";
+      txtOverskrift.style.color = "white";
+      document.body.style.backgroundColor = "black";
       txtOverskrift.style.textAlign = "center";
       txtOverskrift.style.marginTop = "5vh";
       txtOverskrift.style.fontFamily = "Source Sans Pro";
