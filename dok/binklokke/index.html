@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Silje Stadheim">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="./bin.ico" rel="icon">
+  <title>01001011</title>
+  <script>
+    window.onload = main;
+
+    function main() {
+      //tilbakeknapp
+      var tekst = "<-- Tilbake til dokumentasjon";
+      var link = "https://stadheim.github.io/cis/dok/index.html";
+      d("link").innerHTML = tekst.link(link);
+    }
+
+    //setter inn document.getElementById så jeg slipper å skrive de inn
+    function d(elm) { //elm for element
+        return document.getElementById(elm);
+    }
+
+  </script>
+  <style>
+    html, body {
+      font-family: 'Open Sans', sans-serif;
+      height: 75%;
+      text-align: center;
+    }
+    #link {
+      text-align: left;
+    }
+    a:link, a:visited {
+      color: black;
+      text-decoration: none;
+    }
+    a:hover {
+      color: grey;
+    }
+    .txt {
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Dokumentasjon/Binær klokke</h1>
+  <div id="link"></div>
+
+  <div id="innpakning">
+    <h4>Konseptet</h4>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/CEVsbk4eWt8?start=48" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <h4>Forbindelse med mikrokontrolleren</h4>
+    <div class="txt">Prosjektet benytter en ATmega32 mikrokontroller. Under er et utdrag fra en rapport i Datamaskinarkitektur som går igjennom stegene for å kunne laste kode inn på en slik mikrokontroller.</div>
+    <iframe width="60%" height="300px" border="1px solid" src="mikrokontroller_forbindelse.htm" frameborder="0" ></iframe>
+
+    <h4>Kode i mikrokontrolleren</h4>
+    <iframe width="60%" height="300px" src="main.c" frameborder="0" ></iframe>
+
+    <h4>Krets</h4>
+    <img height="200wh" src="krets.png" alt="Kretstegning lastet ikke">
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Silje Stadheim">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formel1</title>
+  <link href="https://1000logos.net/wp-content/uploads/2020/02/F1-Logo.png" rel="icon">
+  <script>
+    window.onload = main;
+
+    var fullskjerm = true;
+
+    function main() {
+      endreModus();
+      d("btnModus").onclick = endreModus;
+    }
+
+    function endreModus() {
+      if(fullskjerm == true) {
+        d("ifrVideo").style.height = "50%";
+        d("btnModus").innerHTML = "Fullskjerm";
+        fullskjerm = false;
+      }
+      else if(fullskjerm == false) {
+        d("ifrVideo").style.height = "99%";
+        d("btnModus").innerHTML = "Halvskjerm";
+        fullskjerm = true;
+      }
+    }
+
+    //setter inn document.getElementById så jeg slipper å skrive de inn
+    function d(elm) { //elm for element
+        return document.getElementById(elm);
+    }
+
+  </script>
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+      overflow: hidden;
+      background-color: black;
+    }
+    #innpakning {
+      height: 100vh;
+    }
+    #ifrVideo {
+      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      width: 100%;
+    }
+    button {
+      color: grey;
+      font-size: 10px;
+      background-color: black;
+      float: right;
+      outline: none;
+    }
+    #divKnapp {
+      position: absolute;
+      height: 20px;
+      width: 100%;
+      bottom: 0;
+      color: grey;
+      background-color: black;
+      font-size: 10px;
+      font-family: Arial;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="innpakning">
+    <iframe id="ifrVideo" src="http://f1livegp.me/f1/live.php" frameborder="0"></iframe>
+    <div id="divKnapp">
+      Tjenesten er utviklet av Silje
+      <button type="button" id="btnModus"></button>
+    </div>
+  </div>
+</body>
+</html>

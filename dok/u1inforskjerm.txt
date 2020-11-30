@@ -1,0 +1,6 @@
+Løsningen benytter PiSignage på en Raspberry Pi Model B+
+1. Last ned nyeste image av PiSignage
+2. Flash imaget på et SD kort.
+- Benyttet balenaEtcher
+3. Sett SD kortet i Pi-en og plugg til HDMI og strømkabel
+4. 
