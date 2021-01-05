@@ -29,8 +29,8 @@
 
     function ctfNyoppgave(i) {
       //variabler som endres
-      var navn = ["Bjelleklang"];
-      var dato = "Tirsdag 1/12";
+      var navn = [".bmp"];
+      var dato = "cisCTF - Fredag 8/11";
       var i = 0;
       //IKKE endre
       ctfIkkeendre(navn,dato,i);
@@ -46,10 +46,10 @@
       if(antUt > 1) {entallflertall = "Nye utfordringer";}
       while(d("innpakning").firstChild) {d("innpakning").removeChild(d("innpakning").firstChild);}
       var txtOverskrift = document.createElement("div");
-      txtOverskrift.innerHTML = "<span style='color:#7d208d;'>cis</span>CTF</br><span style='font-size:5vh;'>" + dato + " - " + entallflertall +":</span></br>" + navnUt[i];
+      txtOverskrift.innerHTML = "<span style='color:#7d208d;font-size:15vh;'>🎆 GODT NYTTÅR! 🎆</span></br><span style='font-size:5vh;'>" + dato + " - " + entallflertall +":</span></br>" + navnUt[i];
       txtOverskrift.style.fontSize = "20vh";
-      txtOverskrift.style.color = "#b22222";
-      document.body.style.backgroundColor = "#00873E";
+      txtOverskrift.style.color = "white";
+      document.body.style.backgroundColor = "black";
       txtOverskrift.style.textAlign = "center";
       txtOverskrift.style.marginTop = "5vh";
       txtOverskrift.style.fontFamily = "Source Sans Pro";
