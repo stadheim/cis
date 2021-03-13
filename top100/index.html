@@ -160,6 +160,9 @@
       else if(valg === "Action" || valg === "Barnefilm" || valg === "Biografi" || valg === "Drama" || valg === "Eventyr" || valg === "Komedie" || valg === "Krim" || valg === "Sci-Fi") {
         sjanger(valg);
       }
+      else if(valg === "uferdig") {
+        uferdig(valg);
+      }
       else if(valg === "ferdig") {
         ferdig(valg);
       }
@@ -195,6 +198,15 @@
     function sjanger(sjangeren) {
       for(var i=0; i<filmer.length; i++) {
         if(filmer[i][2] === sjangeren) {
+          print(filmer,i);
+        }
+      }
+    }
+
+    //lister filmene som IKKE er sett
+    function uferdig() {
+      for(var i=0; i<filmer.length; i++) {
+        if(filmer[i][4] === 0) {
           print(filmer,i);
         }
       }
@@ -301,6 +313,7 @@
         <option value="Komedie">Komedie</option>
         <option value="Krim">Krim</option>
         <option value="Sci-Fi">Sci-Fi</option>
+        <option value="uferdig">Ikke sett</option>
         <option value="ferdig">Ferdig sett</option>
       </select>
 
