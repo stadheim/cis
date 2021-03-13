@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Silje Stadheim">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tab</title>
+  <link href="https://stadheim.github.io/cis/cis.png" rel="icon">
+  <script>
+    window.onload = main;
+
+    var minutter = 2;
+    var nummer = 1;
+//START
+
+    // JavaScript
+    function main() {
+      var dametoalett = true;
+
+      if(minutter > 2) {
+        var herretoalett = false;
+      }
+      else {
+        if(nummer == 2) {
+          var herretoalett = false;
+        }
+        else if (nummer == 1) {
+          var herretoalett = true;
+        }
+        else {
+          console.log("Hva driver du med...");
+        }
+      }
+      console.log(herretoalett);
+    }
+
+//STOPP
+
+  </script>
+  <style>
+
+  </style>
+</head>
+<body>
+
+</body>
+</html>
