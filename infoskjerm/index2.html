@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Silje Stadheim">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=VT323&display=swap" rel="stylesheet">
+  <title>info</title>
+  <script>
+    window.onload = main;
+
+    function main() {
+      annonse();
+      //ctfNyoppgave();
+    }
+
+    function annonse() {
+      var txtTekst = document.createElement("div");
+      txtTekst.innerHTML = "Vil du ha noe her?<br><span style='font-size:5vh;'>Send e-post til tekut@gmail.com</span>";
+      txtTekst.style.fontSize = "10vh";
+      txtTekst.style.color = "white";
+      document.body.style.backgroundColor = "black";
+      txtTekst.style.textAlign = "center";
+      txtTekst.style.marginTop = "5vh";
+      txtTekst.style.fontFamily = "'Montserrat', sans-serif";
+      d("innpakning").appendChild(txtTekst);
+
+    }
+
+    function ctfNyoppgave(i) {
+      //variabler som endres
+      var navn = ["Hasj"];
+      var dato = "Fredag 9/4";
+      var i = 0;
+      //IKKE endre
+      ctfIkkeendre(navn,dato,i);
+      setInterval(function(){
+        if(i >= navn.length-1){i=0;}else{i++;}
+        ctfIkkeendre(navn,dato,i);
+      }, 3000);
+    }
+    function ctfIkkeendre(navnUt,dato,i){
+      //IKKE endre
+      antUt = navnUt.length;
+      var entallflertall = "Ny utfordring";
+      if(antUt > 1) {entallflertall = "Nye utfordringer";}
+      while(d("innpakning").firstChild) {d("innpakning").removeChild(d("innpakning").firstChild);}
+      var txtOverskrift = document.createElement("div");
+      txtOverskrift.innerHTML = "<span style='color:#7d208d;font-size:15vh;'>cis</span>CTF</br><span style='font-size:5vh;'>" + dato + " - " + entallflertall +":</span></br>" + navnUt[i];
+      txtOverskrift.style.fontSize = "20vh";
+      txtOverskrift.style.color = "white";
+      document.body.style.backgroundColor = "black";
+      txtOverskrift.style.textAlign = "center";
+      txtOverskrift.style.marginTop = "5vh";
+      txtOverskrift.style.fontFamily = "Source Sans Pro";
+      d("innpakning").appendChild(txtOverskrift);
+    }
+
+    //setter inn document.getElementById så jeg slipper å skrive de inn
+    function d(elm) { //elm for element
+        return document.getElementById(elm);
+    }
+
+  </script>
+  <style>
+    body {
+    }
+    #innpakning {
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="innpakning"></div>
+
+</body>
+</html>
