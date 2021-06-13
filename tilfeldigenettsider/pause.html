@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Silje Stadheim">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nedtelling</title>
+  <script>
+    window.onload = main;
+
+    var nedtelling;
+    var bool;
+
+    function main() {
+      //startup
+      d("btnInst").onclick = instEndre;
+      d("btnNedt").onclick = nedtStart;
+    }
+
+    function nedtStart() {
+      //skjul instillinger igjen
+      d("divInst").style.display = "none";
+      //hent verdier
+      var minVal = parseInt(d("min").value) || 0; //hent verdi (Sett 0 hvis NaN)
+      var secVal = parseInt(d("sek").value) || 0;
+      var secTot = Math.round((minVal*60)+secVal);
+      //tell ned
+      nedtelling = setInterval(function() {
+        minutes = parseInt(secTot / 60, 10); //logic calculation
+        seconds = parseInt(secTot % 60, 10);
+        console.log(minutes + ":" + seconds);
+        //riktig bakgrunn og skrift
+        if(minutes === 0) {
+          d("txtOverskrift").innerHTML = "PAUSE";
+          bool = !bool; //toggle between true and false
+          var bgcolor = bool ? "#990000" : "#ffa500"; //if(bool=true) {red} else {orange}
+          document.body.style.backgroundColor = bgcolor;
+        }
+        else if(minutes < 0 ) {
+          arrRod = ["#ff0000","#cc0000","#990000","#660000","#7f0000","#330000"];
+          d("txtOverskrift").innerHTML = minutes + " min til pause";
+          document.body.style.backgroundColor = arrRod[Math.abs(minutes)];
+        }
+        else if(minutes <= 5 ) {
+          arrGronn = ["#00e500","#00b200","#007f00","#004c00","#003300","#001900"];
+          d("txtOverskrift").innerHTML = minutes + " min til pause";
+          document.body.style.backgroundColor = arrGronn[minutes];
+        }
+        else {
+          d("txtOverskrift").innerHTML = "";
+        }
+
+        //nedtellingsklokke i hjornet
+        minutes = Math.abs(minutes) < 10 ? "0" + minutes : minutes; //pretty print
+        seconds = Math.abs(seconds) < 10 ? "0" + seconds : seconds;
+        var print = minutes + ":" + seconds;
+        if (--secTot < 0) {
+          d("txtNedtelling").innerHTML = "+" + print.replace(/-/g,"")
+        }
+        else {
+          d("txtNedtelling").innerHTML = print;
+        }
+      }, 1000);
+    }
+
+    function instEndre() {
+      //stopp nedtelling
+      clearInterval(nedtelling);
+      document.body.style.backgroundColor = "black";
+      d("txtNedtelling").innerHTML = "";
+      d("txtOverskrift").innerHTML = "";
+      //vis instillinger igjen
+      if(d("divInst").style.display === "none") {
+        d("divInst").style.display = "inline";
+      }
+      else {
+        d("divInst").style.display = "none";
+      }
+    }
+
+    //setter inn document.getElementById så jeg slipper å skrive de inn
+    function d(elm) { //elm for element
+        return document.getElementById(elm);
+    }
+
+  </script>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Trebuchet MS', sans-serif;
+    }
+    button:hover {
+      filter: brightness(85%);
+    }
+    #divInst {
+      width: 100px;
+      display: inline;
+    }
+    #txtNedtelling {
+      color: #808080;
+      float: right;
+    }
+    #txtSkrift {
+      font-size: 10vh;
+      text-align: center;
+      margin-top: 40vh;
+    }
+  </style>
+</head>
+<body>
+
+  <button type="button" id="btnInst">Instillinger</button>
+  <div id="divInst">
+    <input type="number" id="min" placeholder="min" style="width:40px">
+    <input type="number" id="sek" placeholder="sek" style="width:40px">
+    <button type="button" id="btnNedt">Start</button>
+  </div>
+  <span id="txtNedtelling"></span><br>
+
+  <div id="txtSkrift">
+    <span id="txtOverskrift"></span>
+    <span id="txtUnderskrift"></span>
+  <div>
+</body>
+</html>
