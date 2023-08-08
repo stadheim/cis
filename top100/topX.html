@@ -136,6 +136,7 @@
         ];
         var arstall = [];
         var stigendeArstall = [];
+        var antFilmer = 0;
         var antSett = 0;
 
         function main() {
@@ -177,6 +178,7 @@
         }
 
         function sjekkSorter() {
+            d("txtSett").innerHTML = antSett + " av " + antFilmer + " filmer sett";
             d("txtUtskrift").innerHTML = "";
             d("txtUtskrift").style = "font-size: 16px; margin-top: 10px;";
             var valg = d("sorter").value;
@@ -185,19 +187,29 @@
                 standard(valg);
             }
             else if (valg === "Action" || valg === "Barnefilm" || valg === "Biografi" || valg === "Drama" || valg === "Eventyr" || valg === "Komedie" || valg === "Krim" || valg === "Sci-Fi") {
-                sjanger(valg);
+                intPlass = 2;
+                verdi = valg;
+                sortering(intPlass, verdi);
             }
             else if (valg === "Top100") {
-                top100(valg);
+                intPlass = 4;
+                verdi = 0;
+                sortering(intPlass, verdi);
             }
             else if (valg === "TopX") {
-                topX(valg);
+                intPlass = 4;
+                verdi = 1;
+                sortering(intPlass, verdi);
             }
             else if (valg === "uferdig") {
-                uferdig(valg);
+                intPlass = 5;
+                verdi = 0;
+                sortering(intPlass, verdi);
             }
             else if (valg === "ferdig") {
-                ferdig(valg);
+                intPlass = 5;
+                verdi = 1;
+                sortering(intPlass, verdi);
             }
             else {
                 d("txtSett").innerHTML = "Oisann! Noe gikk galt ved sorteringen";
@@ -239,49 +251,20 @@
             return 0;
         }
 
-        //lister etter sjanger fra array
-        function sjanger(sjangeren) {
+        function sortering(intPlass, verdi) {
+            antGruppe = 0;
+            antSettGruppe = 0;
             for (var i = 0; i < filmer.length; i++) {
-                if (filmer[i][2] === sjangeren) {
+                if (filmer[i][intPlass] === verdi) {
                     print(filmer, i);
+                    antGruppe++;
+                    if (filmer[i][5] === 1) {
+                        antSettGruppe++;
+                    }
                 }
             }
-        }
-
-        //lister filmene som var originale top 100
-        function top100() {
-            for (var i = 0; i < filmer.length; i++) {
-                if (filmer[i][4] === 0) {
-                    print(filmer, i);
-                }
-            }
-        }
-
-        //lister filmene som er lagt til selv
-        function topX() {
-            for (var i = 0; i < filmer.length; i++) {
-                if (filmer[i][4] === 1) {
-                    print(filmer, i);
-                }
-            }
-        }
-
-        //lister filmene som IKKE er sett
-        function uferdig() {
-            for (var i = 0; i < filmer.length; i++) {
-                if (filmer[i][5] === 0) {
-                    print(filmer, i);
-                }
-            }
-        }
-
-        //lister filmene som er sett
-        function ferdig() {
-            for (var i = 0; i < filmer.length; i++) {
-                if (filmer[i][5] === 1) {
-                    print(filmer, i);
-                }
-            }
+            //endre overskrift
+            d("txtSett").innerHTML = antSettGruppe + " av " + antGruppe + " filmer sett";
         }
 
         //printer linje for linje
@@ -314,6 +297,7 @@
 
         //selvstendig funksjon til tilfeldig-knappen
         function tilfeldig() {
+            d("txtSett").innerHTML = antSett + " av " + antFilmer + " filmer sett";
             d("txtUtskrift").innerHTML = "";
             d("txtUtskrift").style = "font-size: 30px; margin-top: 20px;";
             var valg = Math.floor(Math.random() * 100);
