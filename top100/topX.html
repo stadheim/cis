@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <title>Top X</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
     <script>
         window.onload = main;
 
@@ -15,16 +16,16 @@
             // lagt til selv 
             ["La La Land", 2016, "Drama", "https://www.imdb.com/title/tt3783958/", 1],
             ["Moonlight", 2016, "Drama", "https://www.imdb.com/title/tt4975722/", 0],
-            ["Top Gun", 1986, "Action","https://www.imdb.com/title/tt0092099/",1],
+            ["Top Gun", 1986, "Action", "https://www.imdb.com/title/tt0092099/", 1],
             ["12 Years a Slave", 2012, "Biografi", "https://www.imdb.com/title/tt2024544/", 0],
             ["Arrival", 2016, "Sci-Fi", "https://www.imdb.com/title/tt2543164/", 1],
             ["Baby Driver", 2017, "Action", "https://www.imdb.com/title/tt3890160/", 0],
             ["The Fast and the Furious", 2001, "Action", "https://www.imdb.com/title/tt0232500/", 1],
             ["Boyhood", 2014, "Drama", "https://www.imdb.com/title/tt1065073/", 0],
-            ["Dr. Strangelove", 1964, "Komedie", "https://www.imdb.com/title/tt0057012/?ref_=ttls_li_tt",0],
+            ["Dr. Strangelove", 1964, "Komedie", "https://www.imdb.com/title/tt0057012/?ref_=ttls_li_tt", 0],
             ["Inside Out", 2015, "Barnefilm", "https://www.imdb.com/title/tt2096673/", 1],
             ["The Hunger Games", 2012, "Action", "https://www.imdb.com/title/tt1392170/", 1],
-            ["Monty Python and the Holy Grail", 1975, "Komedie", "https://www.imdb.com/title/tt0071853/", 0],  
+            ["Monty Python and the Holy Grail", 1975, "Komedie", "https://www.imdb.com/title/tt0071853/", 0],
             ["Midsommar", 2019, "Drama", "https://www.imdb.com/title/tt8772262/", 0],
             ["The Menu", 2022, "Drama", "https://www.imdb.com/title/tt9764362/", 1],
             ["Shrek", 2001, "Barnefilm", "https://www.imdb.com/title/tt0126029/", 1],
@@ -216,15 +217,17 @@
             }
         }
         function alfabVisning() {
-            filmer = filmer.sort(alfSortering); 
-            for(var i=0; i<filmer.length; i++) {
-                print(filmer,i);
+            filmer = filmer.sort(alfSortering);
+            for (var i = 0; i < filmer.length; i++) {
+                print(filmer, i);
             }
         }
         function alfSortering(a, b) {
             nummer = 0
-            if (a[nummer] < b[nummer]) return -1;
-            if (a[nummer] > b[nummer]) return 1;
+            filmOne = a[nummer].replace("The ", "");
+            filmTwo = b[nummer].replace("The ", "");
+            if (filmOne < filmTwo) return -1;
+            if (filmOne > filmTwo) return 1;
             return 0;
         }
 
@@ -271,7 +274,7 @@
                 a.classList.add("ikkeSett");
             }
             else if (sett === 1) {
-                a.classList.add("sett"); 
+                a.classList.add("sett");
             }
             else {
                 console.log("Feil i element " + arr[nr][0])
@@ -336,21 +339,21 @@
         a:hover {
             color: #DC8081;
         }
+
         .sett {
             color: #DCB081;
         }
 
         .ikkeSett {
-            color: #84694D; 
-            
-        }
-        
+            color: #84694D;
 
-        
+        }
+
+
+
         .gull {
             background-color: #DCB081;
         }
-
     </style>
 </head>
 
@@ -362,7 +365,7 @@
 
         <h3 id="txtSett"></h3>
 
-        
+
         <select id="sorter" class="gull" onchange="sjekkSorter()" autocomplete="off">
             <option value="alfab">Alfabetisk</option>
             <option value="nyest">Nyeste først</option>
