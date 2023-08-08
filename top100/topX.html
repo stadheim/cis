@@ -14,123 +14,125 @@
 
         var filmer = [
             // lagt til selv 
-            ["La La Land", 2016, "Drama", "https://www.imdb.com/title/tt3783958/", 1],
-            ["Moonlight", 2016, "Drama", "https://www.imdb.com/title/tt4975722/", 0],
-            ["Top Gun", 1986, "Action", "https://www.imdb.com/title/tt0092099/", 1],
-            ["12 Years a Slave", 2012, "Biografi", "https://www.imdb.com/title/tt2024544/", 0],
-            ["Arrival", 2016, "Sci-Fi", "https://www.imdb.com/title/tt2543164/", 1],
-            ["Baby Driver", 2017, "Action", "https://www.imdb.com/title/tt3890160/", 0],
-            ["The Fast and the Furious", 2001, "Action", "https://www.imdb.com/title/tt0232500/", 1],
-            ["Boyhood", 2014, "Drama", "https://www.imdb.com/title/tt1065073/", 0],
-            ["Dr. Strangelove", 1964, "Komedie", "https://www.imdb.com/title/tt0057012/?ref_=ttls_li_tt", 0],
-            ["Inside Out", 2015, "Barnefilm", "https://www.imdb.com/title/tt2096673/", 1],
-            ["The Hunger Games", 2012, "Action", "https://www.imdb.com/title/tt1392170/", 1],
-            ["Monty Python and the Holy Grail", 1975, "Komedie", "https://www.imdb.com/title/tt0071853/", 0],
-            ["Midsommar", 2019, "Drama", "https://www.imdb.com/title/tt8772262/", 0],
-            ["The Menu", 2022, "Drama", "https://www.imdb.com/title/tt9764362/", 1],
-            ["Shrek", 2001, "Barnefilm", "https://www.imdb.com/title/tt0126029/", 1],
+            ["La La Land", 2016, "Drama", "https://www.imdb.com/title/tt3783958/", 1, 1],
+            ["Moonlight", 2016, "Drama", "https://www.imdb.com/title/tt4975722/", 1, 0],
+            ["Top Gun", 1986, "Action", "https://www.imdb.com/title/tt0092099/", 1, 1],
+            ["12 Years a Slave", 2012, "Biografi", "https://www.imdb.com/title/tt2024544/", 1, 0],
+            ["Arrival", 2016, "Sci-Fi", "https://www.imdb.com/title/tt2543164/", 1, 1],
+            ["Baby Driver", 2017, "Action", "https://www.imdb.com/title/tt3890160/", 1, 1],
+            ["The Fast and the Furious", 2001, "Action", "https://www.imdb.com/title/tt0232500/", 1, 1],
+            ["Boyhood", 2014, "Drama", "https://www.imdb.com/title/tt1065073/", 1, 0],
+            ["Dr. Strangelove", 1964, "Komedie", "https://www.imdb.com/title/tt0057012/?ref_=ttls_li_tt", 1, 0],
+            ["Inside Out", 2015, "Barnefilm", "https://www.imdb.com/title/tt2096673/", 1, 1],
+            ["The Hunger Games", 2012, "Action", "https://www.imdb.com/title/tt1392170/", 1, 1],
+            ["Monty Python and the Holy Grail", 1975, "Komedie", "https://www.imdb.com/title/tt0071853/", 1, 0],
+            ["Midsommar", 2019, "Drama", "https://www.imdb.com/title/tt8772262/", 1, 0],
+            ["The Menu", 2022, "Drama", "https://www.imdb.com/title/tt9764362/", 1, 1],
+            ["Shrek", 2001, "Barnefilm", "https://www.imdb.com/title/tt0126029/", 1, 1],
+            ["1917", 2019, "Action", "https://www.imdb.com/title/tt8579674/", 1, 1],
+            ["Dead Poets Society", 1989, "Komedie", "https://www.imdb.com/title/tt0097165/", 1, 1],
             // fra plakaten
-            // = ["Filmnavn",årstall,"kategori","IMDB link",0 = usett og 1 = sett];
-            ["Airplane!", 1980, "Komedie", "https://www.imdb.com/title/tt0080339/", 1],
-            ["A Beautiful Mind", 2002, "Drama", "https://www.imdb.com/title/tt0268978", 1],
-            ["A Clockwork Orange", 1971, "Krim", "https://www.imdb.com/title/tt0066921/", 1],
-            ["Alien", 1979, "Sci-Fi", "https://www.imdb.com/title/tt0078748/?ref_=fn_al_tt_1", 1],
-            ["Amadeus", 1984, "Biografi", "https://www.imdb.com/title/tt0086879/?ref_=fn_al_tt_1", 0],
-            ["Amélie", 2001, "Komedie", "https://www.imdb.com/title/tt0211915/?ref_=fn_al_tt_1", 0],
-            ["American Beauty", 1999, "Drama", "https://www.imdb.com/title/tt0169547/?ref_=fn_al_tt_1", 0],
-            ["American History X", 1998, "Drama", "https://www.imdb.com/title/tt0120586/?ref_=fn_al_tt_1", 1],
-            ["American Psycho", 2000, "Krim", "https://www.imdb.com/title/tt0144084/?ref_=fn_al_tt_1", 1],
-            ["Apocalypse Now", 1979, "Drama", "https://www.imdb.com/title/tt0078788/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["The Avengers", 2012, "Action", "https://www.imdb.com/title/tt0848228/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["Casablanca", 1942, "Drama", "https://www.imdb.com/title/tt0034583/?ref_=fn_al_tt_1", 1],
-            ["Cinema Paradiso", 1988, "Drama", "https://www.imdb.com/title/tt0095765/?ref_=fn_al_tt_1", 0],
-            ["Citizen Kane", 1941, "Drama", "https://www.imdb.com/title/tt0033467/?ref_=fn_al_tt_1", 1],
-            ["City of God", 2002, "Krim", "https://www.imdb.com/title/tt0317248/?ref_=fn_al_tt_1", 1],
-            ["Back to the Future", 1985, "Sci-Fi", "https://www.imdb.com/title/tt0088763/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["Batman Begins", 2005, "Action", "https://www.imdb.com/title/tt0372784/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["Before Sunrise", 1995, "Drama", "https://www.imdb.com/title/tt0112471/?ref_=nv_sr_1?ref_=nv_sr_1", 0],
-            ["The Big Lebowski", 1998, "Komedie", "https://www.imdb.com/title/tt0118715/?ref_=fn_al_tt_1", 1],
-            ["Blade Runner", 1982, "Sci-Fi", "https://www.imdb.com/title/tt0083658/?ref_=fn_al_tt_1", 1],
-            ["The Bourne Identity", 2002, "Action", "https://www.imdb.com/title/tt0258463/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["Braveheart", 1995, "Biografi", "https://www.imdb.com/title/tt0112573/?ref_=nv_sr_1?ref_=nv_sr_1", 0],
-            ["The Dark Knight", 2008, "Action", "https://www.imdb.com/title/tt0468569/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["The Departed", 2006, "Krim", "https://www.imdb.com/title/tt0407887/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["Dirty Dancing", 1987, "Drama", "https://www.imdb.com/title/tt0092890/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["Django Unchained", 2012, "Drama", "https://www.imdb.com/title/tt1853728/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["Donnie Darko", 2001, "Drama", "https://www.imdb.com/title/tt0246578/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["Eternal Sunshine of the Spotless Mind", 2004, "Drama", "https://www.imdb.com/title/tt0338013/?ref_=fn_al_tt_1", 0],
-            ["Fargo", 1996, "Krim", "https://www.imdb.com/title/tt0116282/?ref_=fn_al_tt_2", 1],
-            ["Fight Club", 1999, "Drama", "https://www.imdb.com/title/tt0137523/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["Finding Nemo", 2003, "Barnefilm", "https://www.imdb.com/title/tt0266543/?ref_=nv_sr_1?ref_=nv_sr_1", 0],
-            ["Forrest Gump", 1994, "Drama", "https://www.imdb.com/title/tt0109830/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["Gladiator", 2000, "Action", "https://www.imdb.com/title/tt0172495/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["The Godfather", 1972, "Krim", "https://www.imdb.com/title/tt0068646/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["Goodfellas", 1990, "Biografi", "https://www.imdb.com/title/tt0099685/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["The Good, The Bad and The Ugly", 1966, "Action", "https://www.imdb.com/title/tt0060196/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["Good Will Hunting", 1997, "Drama", "https://www.imdb.com/title/tt0119217/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["The Grand Budapest Hotel", 2014, "Eventyr", "https://www.imdb.com/title/tt2278388/?ref_=nv_sr_1?ref_=nv_sr_1", 0],
-            ["The Great Dictator", 1940, "Komedie", "https://www.imdb.com/title/tt0032553/?ref_=nv_sr_1?ref_=nv_sr_1", 0],
-            ["The Green Mile", 1999, "Krim", "https://www.imdb.com/title/tt0120689/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["Groundhog Day", 1993, "Komedie", "https://www.imdb.com/title/tt0107048/?ref_=fn_al_tt_1", 1],
-            ["Guardians of the Galaxy", 2014, "Action", "https://www.imdb.com/title/tt2015381/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["Hachiko: A Dog's Tale", 2009, "Drama", "https://www.imdb.com/title/tt1028532/?ref_=nv_sr_1?ref_=nv_sr_1", 0],
-            ["Harry Potter and the Sorcerer's Stone", 2001, "Eventyr", "https://www.imdb.com/title/tt0241527/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["Inception", 2010, "Action", "https://www.imdb.com/title/tt1375666/?ref_=fn_al_tt_1", 1],
-            ["Indiana Jones and the Last Crusade", 1989, "Action", "https://www.imdb.com/title/tt0097576/?ref_=fn_al_tt_1", 1],
-            ["Inglourious Basterds", 2009, "Action", "https://www.imdb.com/title/tt0361748/?ref_=fn_al_tt_1", 1],
-            ["Interstellar", 2014, "Sci-Fi", "https://www.imdb.com/title/tt0816692/?ref_=fn_al_tt_1", 1],
-            ["Into the Wild", 2007, "Biografi", "https://www.imdb.com/title/tt0758758/?ref_=nv_sr_1?ref_=nv_sr_1", 0],
-            ["The Intouchables", 2011, "Biografi", "https://www.imdb.com/title/tt1675434/?ref_=fn_al_tt_1", 1],
-            ["Jaws", 1975, "Drama", "https://www.imdb.com/title/tt0073195/?ref_=fn_al_tt_1", 1],
-            ["Kill Bill", 2001, "Action", "https://www.imdb.com/title/tt0266697/?ref_=fn_al_tt_1", 1],
-            ["Life Is Beautiful", 1997, "Komedie", "https://www.imdb.com/title/tt0118799/?ref_=fn_al_tt_1", 0],
-            ["Léon: The Professional", 1994, "Action", "https://www.imdb.com/title/tt0110413/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["The Lion King", 1994, "Barnefilme", "https://www.imdb.com/title/tt0110357/?ref_=nv_sr_2?ref_=nv_sr_2", 0],
-            ["Lock, Stock and Two Smoking Barrels", 1998, "Komedie", "https://www.imdb.com/title/tt0120735/?ref_=fn_al_tt_1", 0],
-            ["Logan", 2017, "Action", "https://www.imdb.com/title/tt3315342/", 1],
-            ["The Lord of the Rings", 2001, "Eventyr", "https://www.imdb.com/title/tt0120737/?ref_=nv_sr_1?ref_=nv_sr_1", 0],
-            ["Mad Max", 2015, "Action", "https://www.imdb.com/title/tt1392190/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["The Matrix", 1999, "Sci-Fi", "https://www.imdb.com/title/tt0133093/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["Memento", 2000, "Krim", "https://www.imdb.com/title/tt0209144/?ref_=fn_al_tt_1", 1],
-            ["Million Dollar Baby", 2004, "Drama", "https://www.imdb.com/title/tt0405159/?ref_=fn_al_tt_1", 0],
-            ["Monsters, Inc.", 2001, "Barnefilm", "https://www.imdb.com/title/tt0198781/?ref_=fn_al_tt_1", 1],
-            ["No Country for Old Men", 2007, "Krim", "https://www.imdb.com/title/tt0477348/?ref_=fn_al_tt_1", 1],
-            ["One Flew Over the Cuckoo's Nest", 1975, "Drama", "https://www.imdb.com/title/tt0073486/?ref_=fn_al_tt_1", 1],
-            ["Pan's Labyrinth", 2006, "Drama", "https://www.imdb.com/title/tt0457430/?ref_=fn_al_tt_1", 0],
-            ["The Pianist", 2002, "Biografi", "https://www.imdb.com/title/tt0253474/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["Pirates of the Caribbean: The Curse of the Black Pearl", 2003, "Eventyr", "https://www.imdb.com/title/tt0325980/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["The Prestige", 2006, "Drama", "https://www.imdb.com/title/tt0482571/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["Pulp Fiction", 1994, "Krim", "https://www.imdb.com/title/tt0110912/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["Raiders of the Lost Ark", 1981, "Eventyr", "https://www.imdb.com/title/tt0082971/?ref_=fn_al_tt_1", 1],
-            ["Requiem for a Dream", 2000, "Drama", "https://www.imdb.com/title/tt0180093/?ref_=fn_al_tt_1", 1],
-            ["Reservoir Dogs", 1992, "Krim", "https://www.imdb.com/title/tt0105236/?ref_=fn_al_tt_1", 1],
-            ["Rocky", 1976, "Drama", "https://www.imdb.com/title/tt0075148/?ref_=fn_al_tt_1", 1],
-            ["Saving Private Lauren", 1998, "Drama", "https://www.imdb.com/title/tt0120815/?ref_=fn_al_tt_1", 1],
-            ["Scarface", 1983, "Krim", "https://www.imdb.com/title/tt0086250/?ref_=fn_al_tt_1", 1],
-            ["Schindler's List", 1993, "Biografi", "https://www.imdb.com/title/tt0108052/?ref_=fn_al_tt_1", 0],
-            ["Seven Samurai", 1954, "Drama", "https://www.imdb.com/title/tt0047478/?ref_=fn_al_tt_1", 0],
-            ["Se7en", 1995, "Krim", "https://www.imdb.com/title/tt0114369/?ref_=fn_al_tt_1", 1],
-            ["The Shawshank Redemption", 1994, "Drama", "https://www.imdb.com/title/tt0111161/?ref_=fn_al_tt_3", 1],
-            ["The Shining", 1980, "Drama", "https://www.imdb.com/title/tt0081505/?ref_=fn_al_tt_1", 1],
-            ["Shutter Island", 2010, "Krim", "https://www.imdb.com/title/tt1130884/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["The Silence of the Lambs", 1991, "Krim", "https://www.imdb.com/title/tt0102926/?ref_=fn_al_tt_1", 1],
-            ["Snatch", 2000, "Komedie", "https://www.imdb.com/title/tt0208092/?ref_=fn_al_tt_1", 1],
-            ["Spirited Away", 2001, "Barnefilm", "https://www.imdb.com/title/tt0245429/?ref_=fn_al_tt_1", 1],
-            ["Star Wars", 1997, "Sci-Fi", "https://www.imdb.com/title/tt0076759/?ref_=nv_sr_1?ref_=nv_sr_1", 1],
-            ["Taxi Driver", 1976, "Krim", "https://www.imdb.com/title/tt0075314/?ref_=fn_al_tt_1", 1],
-            ["The Terminator", 1984, "Sci-Fi", "https://www.imdb.com/title/tt0088247/?ref_=fn_al_tt_1", 1],
-            ["Titanic", 1997, "Drama", "https://www.imdb.com/title/tt0120338/?ref_=fn_al_tt_1", 1],
-            ["Toy Story", 1995, "Barnefilm", "https://www.imdb.com/title/tt0114709/?ref_=fn_al_tt_1", 1],
-            ["Trainspotting", 1996, "Drama", "https://www.imdb.com/title/tt0117951/?ref_=fn_al_tt_1", 1],
-            ["The Truman Show", 1998, "Komedie", "https://www.imdb.com/title/tt0120382/?ref_=fn_al_tt_1", 1],
-            ["UP", 2009, "Barnefilm", "https://www.imdb.com/title/tt1049413/?ref_=nv_sr_5?ref_=nv_sr_5", 1],
-            ["The Usual Suspects", 1995, "Krim", "https://www.imdb.com/title/tt0114814/?ref_=fn_al_tt_1", 1],
-            ["Vertigo", 1958, "Krim", "https://www.imdb.com/title/tt0052357/?ref_=fn_al_tt_1", 0],
-            ["V for Vendetta", 2005, "Action", "https://www.imdb.com/title/tt0434409/?ref_=fn_al_tt_1", 1],
-            ["WALL·E", 2008, "Barnefilm", "https://www.imdb.com/title/tt0910970/?ref_=fn_al_tt_1", 1],
-            ["3 Idiots", 2009, "Komedie", "https://www.imdb.com/title/tt1187043/?ref_=fn_al_tt_1", 0],
-            ["12 Angry Men", 1957, "Drama", "https://www.imdb.com/title/tt0050083/?ref_=fn_al_tt_1", 0],
-            ["2001: A Space Odyssey", 1968, "Sci-Fi", "https://www.imdb.com/title/tt0062622/?ref_=fn_al_tt_1", 1],
+            // = ["Filmnavn",årstall,"kategori","IMDB link", 0 = original og 1 = lagt til selv, 0 = usett og 1 = sett];
+            ["Airplane!", 1980, "Komedie", "https://www.imdb.com/title/tt0080339/", 0, 1],
+            ["A Beautiful Mind", 2002, "Drama", "https://www.imdb.com/title/tt0268978", 0, 1],
+            ["A Clockwork Orange", 1971, "Krim", "https://www.imdb.com/title/tt0066921/", 0, 1],
+            ["Alien", 1979, "Sci-Fi", "https://www.imdb.com/title/tt0078748/?ref_=fn_al_tt_1", 0, 1],
+            ["Amadeus", 1984, "Biografi", "https://www.imdb.com/title/tt0086879/?ref_=fn_al_tt_1", 0, 0],
+            ["Amélie", 2001, "Komedie", "https://www.imdb.com/title/tt0211915/?ref_=fn_al_tt_1", 0, 0],
+            ["American Beauty", 1999, "Drama", "https://www.imdb.com/title/tt0169547/?ref_=fn_al_tt_1", 0, 0],
+            ["American History X", 1998, "Drama", "https://www.imdb.com/title/tt0120586/?ref_=fn_al_tt_1", 0, 1],
+            ["American Psycho", 2000, "Krim", "https://www.imdb.com/title/tt0144084/?ref_=fn_al_tt_1", 0, 1],
+            ["Apocalypse Now", 1979, "Drama", "https://www.imdb.com/title/tt0078788/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["The Avengers", 2012, "Action", "https://www.imdb.com/title/tt0848228/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["Casablanca", 1942, "Drama", "https://www.imdb.com/title/tt0034583/?ref_=fn_al_tt_1", 0, 1],
+            ["Cinema Paradiso", 1988, "Drama", "https://www.imdb.com/title/tt0095765/?ref_=fn_al_tt_1", 0, 0],
+            ["Citizen Kane", 1941, "Drama", "https://www.imdb.com/title/tt0033467/?ref_=fn_al_tt_1", 0, 1],
+            ["City of God", 2002, "Krim", "https://www.imdb.com/title/tt0317248/?ref_=fn_al_tt_1", 0, 1],
+            ["Back to the Future", 1985, "Sci-Fi", "https://www.imdb.com/title/tt0088763/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["Batman Begins", 2005, "Action", "https://www.imdb.com/title/tt0372784/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["Before Sunrise", 1995, "Drama", "https://www.imdb.com/title/tt0112471/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 0],
+            ["The Big Lebowski", 1998, "Komedie", "https://www.imdb.com/title/tt0118715/?ref_=fn_al_tt_1", 0, 1],
+            ["Blade Runner", 1982, "Sci-Fi", "https://www.imdb.com/title/tt0083658/?ref_=fn_al_tt_1", 0, 1],
+            ["The Bourne Identity", 2002, "Action", "https://www.imdb.com/title/tt0258463/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["Braveheart", 1995, "Biografi", "https://www.imdb.com/title/tt0112573/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 0],
+            ["The Dark Knight", 2008, "Action", "https://www.imdb.com/title/tt0468569/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["The Departed", 2006, "Krim", "https://www.imdb.com/title/tt0407887/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["Dirty Dancing", 1987, "Drama", "https://www.imdb.com/title/tt0092890/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["Django Unchained", 2012, "Drama", "https://www.imdb.com/title/tt1853728/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["Donnie Darko", 2001, "Drama", "https://www.imdb.com/title/tt0246578/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["Eternal Sunshine of the Spotless Mind", 2004, "Drama", "https://www.imdb.com/title/tt0338013/?ref_=fn_al_tt_1", 0, 0],
+            ["Fargo", 1996, "Krim", "https://www.imdb.com/title/tt0116282/?ref_=fn_al_tt_2", 0, 1],
+            ["Fight Club", 1999, "Drama", "https://www.imdb.com/title/tt0137523/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["Finding Nemo", 2003, "Barnefilm", "https://www.imdb.com/title/tt0266543/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 0],
+            ["Forrest Gump", 1994, "Drama", "https://www.imdb.com/title/tt0109830/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["Gladiator", 2000, "Action", "https://www.imdb.com/title/tt0172495/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["The Godfather", 1972, "Krim", "https://www.imdb.com/title/tt0068646/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["Goodfellas", 1990, "Biografi", "https://www.imdb.com/title/tt0099685/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["The Good, The Bad and The Ugly", 1966, "Action", "https://www.imdb.com/title/tt0060196/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["Good Will Hunting", 1997, "Drama", "https://www.imdb.com/title/tt0119217/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["The Grand Budapest Hotel", 2014, "Eventyr", "https://www.imdb.com/title/tt2278388/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 0],
+            ["The Great Dictator", 1940, "Komedie", "https://www.imdb.com/title/tt0032553/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 0],
+            ["The Green Mile", 1999, "Krim", "https://www.imdb.com/title/tt0120689/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["Groundhog Day", 1993, "Komedie", "https://www.imdb.com/title/tt0107048/?ref_=fn_al_tt_1", 0, 1],
+            ["Guardians of the Galaxy", 2014, "Action", "https://www.imdb.com/title/tt2015381/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["Hachiko: A Dog's Tale", 2009, "Drama", "https://www.imdb.com/title/tt1028532/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 0],
+            ["Harry Potter and the Sorcerer's Stone", 2001, "Eventyr", "https://www.imdb.com/title/tt0241527/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["Inception", 2010, "Action", "https://www.imdb.com/title/tt1375666/?ref_=fn_al_tt_1", 0, 1],
+            ["Indiana Jones and the Last Crusade", 1989, "Action", "https://www.imdb.com/title/tt0097576/?ref_=fn_al_tt_1", 0, 1],
+            ["Inglourious Basterds", 2009, "Action", "https://www.imdb.com/title/tt0361748/?ref_=fn_al_tt_1", 0, 1],
+            ["Interstellar", 2014, "Sci-Fi", "https://www.imdb.com/title/tt0816692/?ref_=fn_al_tt_1", 0, 1],
+            ["Into the Wild", 2007, "Biografi", "https://www.imdb.com/title/tt0758758/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 0],
+            ["The Intouchables", 2011, "Biografi", "https://www.imdb.com/title/tt1675434/?ref_=fn_al_tt_1", 0, 1],
+            ["Jaws", 1975, "Drama", "https://www.imdb.com/title/tt0073195/?ref_=fn_al_tt_1", 0, 1],
+            ["Kill Bill", 2001, "Action", "https://www.imdb.com/title/tt0266697/?ref_=fn_al_tt_1", 0, 1],
+            ["Life Is Beautiful", 1997, "Komedie", "https://www.imdb.com/title/tt0118799/?ref_=fn_al_tt_1", 0, 0],
+            ["Léon: The Professional", 1994, "Action", "https://www.imdb.com/title/tt0110413/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["The Lion King", 1994, "Barnefilme", "https://www.imdb.com/title/tt0110357/?ref_=nv_sr_2?ref_=nv_sr_2", 0, 0],
+            ["Lock, Stock and Two Smoking Barrels", 1998, "Komedie", "https://www.imdb.com/title/tt0120735/?ref_=fn_al_tt_1", 0, 0],
+            ["Logan", 2017, "Action", "https://www.imdb.com/title/tt3315342/", 0, 1],
+            ["The Lord of the Rings", 2001, "Eventyr", "https://www.imdb.com/title/tt0120737/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 0],
+            ["Mad Max", 2015, "Action", "https://www.imdb.com/title/tt1392190/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["The Matrix", 1999, "Sci-Fi", "https://www.imdb.com/title/tt0133093/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["Memento", 2000, "Krim", "https://www.imdb.com/title/tt0209144/?ref_=fn_al_tt_1", 0, 1],
+            ["Million Dollar Baby", 2004, "Drama", "https://www.imdb.com/title/tt0405159/?ref_=fn_al_tt_1", 0, 0],
+            ["Monsters, Inc.", 2001, "Barnefilm", "https://www.imdb.com/title/tt0198781/?ref_=fn_al_tt_1", 0, 1],
+            ["No Country for Old Men", 2007, "Krim", "https://www.imdb.com/title/tt0477348/?ref_=fn_al_tt_1", 0, 1],
+            ["One Flew Over the Cuckoo's Nest", 1975, "Drama", "https://www.imdb.com/title/tt0073486/?ref_=fn_al_tt_1", 0, 1],
+            ["Pan's Labyrinth", 2006, "Drama", "https://www.imdb.com/title/tt0457430/?ref_=fn_al_tt_1", 0, 0],
+            ["The Pianist", 2002, "Biografi", "https://www.imdb.com/title/tt0253474/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["Pirates of the Caribbean: The Curse of the Black Pearl", 2003, "Eventyr", "https://www.imdb.com/title/tt0325980/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["The Prestige", 2006, "Drama", "https://www.imdb.com/title/tt0482571/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["Pulp Fiction", 1994, "Krim", "https://www.imdb.com/title/tt0110912/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["Raiders of the Lost Ark", 1981, "Eventyr", "https://www.imdb.com/title/tt0082971/?ref_=fn_al_tt_1", 0, 1],
+            ["Requiem for a Dream", 2000, "Drama", "https://www.imdb.com/title/tt0180093/?ref_=fn_al_tt_1", 0, 1],
+            ["Reservoir Dogs", 1992, "Krim", "https://www.imdb.com/title/tt0105236/?ref_=fn_al_tt_1", 0, 1],
+            ["Rocky", 1976, "Drama", "https://www.imdb.com/title/tt0075148/?ref_=fn_al_tt_1", 0, 1],
+            ["Saving Private Lauren", 1998, "Drama", "https://www.imdb.com/title/tt0120815/?ref_=fn_al_tt_1", 0, 1],
+            ["Scarface", 1983, "Krim", "https://www.imdb.com/title/tt0086250/?ref_=fn_al_tt_1", 0, 1],
+            ["Schindler's List", 1993, "Biografi", "https://www.imdb.com/title/tt0108052/?ref_=fn_al_tt_1", 0, 0],
+            ["Seven Samurai", 1954, "Drama", "https://www.imdb.com/title/tt0047478/?ref_=fn_al_tt_1", 0, 0],
+            ["Se7en", 1995, "Krim", "https://www.imdb.com/title/tt0114369/?ref_=fn_al_tt_1", 0, 1],
+            ["The Shawshank Redemption", 1994, "Drama", "https://www.imdb.com/title/tt0111161/?ref_=fn_al_tt_3", 0, 1],
+            ["The Shining", 1980, "Drama", "https://www.imdb.com/title/tt0081505/?ref_=fn_al_tt_1", 0, 1],
+            ["Shutter Island", 2010, "Krim", "https://www.imdb.com/title/tt1130884/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["The Silence of the Lambs", 1991, "Krim", "https://www.imdb.com/title/tt0102926/?ref_=fn_al_tt_1", 0, 1],
+            ["Snatch", 2000, "Komedie", "https://www.imdb.com/title/tt0208092/?ref_=fn_al_tt_1", 0, 1],
+            ["Spirited Away", 2001, "Barnefilm", "https://www.imdb.com/title/tt0245429/?ref_=fn_al_tt_1", 0, 1],
+            ["Star Wars", 1997, "Sci-Fi", "https://www.imdb.com/title/tt0076759/?ref_=nv_sr_1?ref_=nv_sr_1", 0, 1],
+            ["Taxi Driver", 1976, "Krim", "https://www.imdb.com/title/tt0075314/?ref_=fn_al_tt_1", 0, 1],
+            ["The Terminator", 1984, "Sci-Fi", "https://www.imdb.com/title/tt0088247/?ref_=fn_al_tt_1", 0, 1],
+            ["Titanic", 1997, "Drama", "https://www.imdb.com/title/tt0120338/?ref_=fn_al_tt_1", 0, 1],
+            ["Toy Story", 1995, "Barnefilm", "https://www.imdb.com/title/tt0114709/?ref_=fn_al_tt_1", 0, 1],
+            ["Trainspotting", 1996, "Drama", "https://www.imdb.com/title/tt0117951/?ref_=fn_al_tt_1", 0, 1],
+            ["The Truman Show", 1998, "Komedie", "https://www.imdb.com/title/tt0120382/?ref_=fn_al_tt_1", 0, 1],
+            ["UP", 2009, "Barnefilm", "https://www.imdb.com/title/tt1049413/?ref_=nv_sr_5?ref_=nv_sr_5", 0, 1],
+            ["The Usual Suspects", 1995, "Krim", "https://www.imdb.com/title/tt0114814/?ref_=fn_al_tt_1", 0, 1],
+            ["Vertigo", 1958, "Krim", "https://www.imdb.com/title/tt0052357/?ref_=fn_al_tt_1", 0, 0],
+            ["V for Vendetta", 2005, "Action", "https://www.imdb.com/title/tt0434409/?ref_=fn_al_tt_1", 0, 1],
+            ["WALL·E", 2008, "Barnefilm", "https://www.imdb.com/title/tt0910970/?ref_=fn_al_tt_1", 0, 1],
+            ["3 Idiots", 2009, "Komedie", "https://www.imdb.com/title/tt1187043/?ref_=fn_al_tt_1", 0, 0],
+            ["12 Angry Men", 1957, "Drama", "https://www.imdb.com/title/tt0050083/?ref_=fn_al_tt_1", 0, 0],
+            ["2001: A Space Odyssey", 1968, "Sci-Fi", "https://www.imdb.com/title/tt0062622/?ref_=fn_al_tt_1", 0, 1],
         ];
         var arstall = [];
         var stigendeArstall = [];
@@ -143,7 +145,7 @@
             d("overskrift").innerHTML = "Top " + antFilmer + " Movies";
             //sjekker hvor mange som er sett ved oppstart
             for (var i = 0; i < antFilmer; i++) {
-                if (filmer[i][4] === 1) {
+                if (filmer[i][5] === 1) {
                     antSett++;
                 }
             }
@@ -184,6 +186,12 @@
             }
             else if (valg === "Action" || valg === "Barnefilm" || valg === "Biografi" || valg === "Drama" || valg === "Eventyr" || valg === "Komedie" || valg === "Krim" || valg === "Sci-Fi") {
                 sjanger(valg);
+            }
+            else if (valg === "Top100") {
+                top100(valg);
+            }
+            else if (valg === "TopX") {
+                topX(valg);
             }
             else if (valg === "uferdig") {
                 uferdig(valg);
@@ -240,10 +248,28 @@
             }
         }
 
+        //lister filmene som var originale top 100
+        function top100() {
+            for (var i = 0; i < filmer.length; i++) {
+                if (filmer[i][4] === 0) {
+                    print(filmer, i);
+                }
+            }
+        }
+
+        //lister filmene som er lagt til selv
+        function topX() {
+            for (var i = 0; i < filmer.length; i++) {
+                if (filmer[i][4] === 1) {
+                    print(filmer, i);
+                }
+            }
+        }
+
         //lister filmene som IKKE er sett
         function uferdig() {
             for (var i = 0; i < filmer.length; i++) {
-                if (filmer[i][4] === 0) {
+                if (filmer[i][5] === 0) {
                     print(filmer, i);
                 }
             }
@@ -252,7 +278,7 @@
         //lister filmene som er sett
         function ferdig() {
             for (var i = 0; i < filmer.length; i++) {
-                if (filmer[i][4] === 1) {
+                if (filmer[i][5] === 1) {
                     print(filmer, i);
                 }
             }
@@ -269,7 +295,7 @@
             a.target = "_blank";
 
             //skriver ut linjen (ulikt utseende om sett eller ikke)
-            sett = arr[nr][4];
+            sett = arr[nr][5];
             if (sett === 0) {
                 a.classList.add("ikkeSett");
             }
@@ -292,10 +318,10 @@
             d("txtUtskrift").style = "font-size: 30px; margin-top: 20px;";
             var valg = Math.floor(Math.random() * 100);
 
-            if (filmer[valg][4] === 0) {
+            if (filmer[valg][5] === 0) {
                 print(filmer, valg);
             }
-            else if (filmer[valg][4] === 1) {
+            else if (filmer[valg][5] === 1) {
                 tilfeldig();
             }
             else {
@@ -378,6 +404,8 @@
             <option value="Komedie">Komedie</option>
             <option value="Krim">Krim</option>
             <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Top100">Originale 100</option>
+            <option value="TopX">Lagt til selv</option>
             <option value="uferdig">Ikke sett</option>
             <option value="ferdig">Ferdig sett</option>
         </select>
